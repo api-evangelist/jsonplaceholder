@@ -1,0 +1,32 @@
+aid: jsonplaceholder
+name: JSONPlaceholder
+description: "Fake REST API for testing and prototyping"
+url: https://jsonplaceholder.typicode.com
+specificationVersion: '0.20'
+created: '2026-05-28'
+modified: '2026-05-28'
+x-source: public-apis/public-apis
+x-category: "Development"
+x-tier: 3
+x-tier-reason: bulk-registered-from-public-apis
+tags:
+  - Development
+  - Public APIs
+apis:
+  - name: JSONPlaceholder
+    description: "Fake REST API for testing and prototyping"
+    humanURL: https://jsonplaceholder.typicode.com
+    baseURL: https://jsonplaceholder.typicode.com
+    tags:
+      - Development
+    properties:
+      - type: Documentation
+        url: https://jsonplaceholder.typicode.com
+common:
+  - type: Website
+    url: https://jsonplaceholder.typicode.com
+  - type: PublicAPIsListing
+    url: https://github.com/public-apis/public-apis
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
