@@ -1,0 +1,49 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "jph": "https://jsonplaceholder.typicode.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Post": "jph:Post",
+    "Comment": "jph:Comment",
+    "Album": "jph:Album",
+    "Photo": "jph:Photo",
+    "Todo": "jph:Todo",
+    "User": "jph:User",
+    "Address": "jph:Address",
+    "Geo": "jph:Geo",
+    "Company": "jph:Company",
+
+    "id": { "@id": "dcterms:identifier", "@type": "xsd:integer" },
+    "userId": { "@id": "jph:userId", "@type": "xsd:integer" },
+    "postId": { "@id": "jph:postId", "@type": "xsd:integer" },
+    "albumId": { "@id": "jph:albumId", "@type": "xsd:integer" },
+
+    "title": { "@id": "schema:name", "@type": "xsd:string" },
+    "name": { "@id": "schema:name", "@type": "xsd:string" },
+    "username": { "@id": "jph:username", "@type": "xsd:string" },
+    "body": { "@id": "schema:description", "@type": "xsd:string" },
+    "description": { "@id": "schema:description", "@type": "xsd:string" },
+    "email": { "@id": "schema:email", "@type": "xsd:string" },
+    "phone": { "@id": "schema:telephone", "@type": "xsd:string" },
+    "website": { "@id": "schema:url", "@type": "@id" },
+    "url": { "@id": "schema:url", "@type": "@id" },
+    "thumbnailUrl": { "@id": "schema:thumbnailUrl", "@type": "@id" },
+    "completed": { "@id": "jph:completed", "@type": "xsd:boolean" },
+
+    "address": { "@id": "schema:address", "@type": "@id" },
+    "street": { "@id": "schema:streetAddress", "@type": "xsd:string" },
+    "suite": { "@id": "jph:suite", "@type": "xsd:string" },
+    "city": { "@id": "schema:addressLocality", "@type": "xsd:string" },
+    "zipcode": { "@id": "schema:postalCode", "@type": "xsd:string" },
+    "geo": { "@id": "schema:geo", "@type": "@id" },
+    "lat": { "@id": "schema:latitude", "@type": "xsd:string" },
+    "lng": { "@id": "schema:longitude", "@type": "xsd:string" },
+
+    "company": { "@id": "schema:worksFor", "@type": "@id" },
+    "catchPhrase": { "@id": "schema:slogan", "@type": "xsd:string" },
+    "bs": { "@id": "jph:bs", "@type": "xsd:string" }
+  }
+}

@@ -1,0 +1,314 @@
+naftiko: "1.0.0-alpha2"
+
+info:
+  label: "JSONPlaceholder REST API — Users"
+  description: >-
+    Users — the JSONPlaceholder users surface (10 sample users with profile,
+    address, and company metadata). 8 operations including nested routes for
+    posts, albums, and todos. Lead operation: List Users. Self-contained
+    Naftiko capability covering one JSONPlaceholder business surface.
+  tags:
+    - JSONPlaceholder
+    - Users
+    - Fake REST
+  created: "2026-05-29"
+  modified: "2026-05-29"
+
+binds:
+  - namespace: env
+    keys:
+      JSONPLACEHOLDER_BASE_URL: JSONPLACEHOLDER_BASE_URL
+
+capability:
+
+  consumes:
+    - type: http
+      namespace: "jsonplaceholder-users"
+      baseUri: "https://jsonplaceholder.typicode.com"
+      description: "JSONPlaceholder Users surface. No authentication required."
+      resources:
+        - name: "users"
+          path: "/users"
+          operations:
+            - name: "listUsers"
+              method: GET
+              description: "List all 10 sample users with profile, address, and company metadata."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: "createUser"
+              method: POST
+              description: "Create a new user (simulated)."
+              inputParameters:
+                - name: "body"
+                  in: body
+                  type: object
+                  required: true
+                  description: "User payload."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: "user"
+          path: "/users/{id}"
+          operations:
+            - name: "getUser"
+              method: GET
+              description: "Get a single user by id."
+              inputParameters:
+                - name: "id"
+                  in: path
+                  type: integer
+                  required: true
+                  description: "User identifier (1-10)."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: "replaceUser"
+              method: PUT
+              description: "Replace a user in full (simulated)."
+              inputParameters:
+                - name: "id"
+                  in: path
+                  type: integer
+                  required: true
+                  description: "User identifier."
+                - name: "body"
+                  in: body
+                  type: object
+                  required: true
+                  description: "Full replacement payload."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: "updateUser"
+              method: PATCH
+              description: "Partially update a user (simulated)."
+              inputParameters:
+                - name: "id"
+                  in: path
+                  type: integer
+                  required: true
+                  description: "User identifier."
+                - name: "body"
+                  in: body
+                  type: object
+                  required: true
+                  description: "Partial update payload."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: "deleteUser"
+              method: DELETE
+              description: "Delete a user (simulated)."
+              inputParameters:
+                - name: "id"
+                  in: path
+                  type: integer
+                  required: true
+                  description: "User identifier."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: "user-posts"
+          path: "/users/{id}/posts"
+          operations:
+            - name: "listUserPosts"
+              method: GET
+              description: "List all posts authored by a single user."
+              inputParameters:
+                - name: "id"
+                  in: path
+                  type: integer
+                  required: true
+                  description: "User identifier."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: "user-albums"
+          path: "/users/{id}/albums"
+          operations:
+            - name: "listUserAlbums"
+              method: GET
+              description: "List all albums owned by a single user."
+              inputParameters:
+                - name: "id"
+                  in: path
+                  type: integer
+                  required: true
+                  description: "User identifier."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: "user-todos"
+          path: "/users/{id}/todos"
+          operations:
+            - name: "listUserTodos"
+              method: GET
+              description: "List all todos owned by a single user."
+              inputParameters:
+                - name: "id"
+                  in: path
+                  type: integer
+                  required: true
+                  description: "User identifier."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      namespace: "jsonplaceholder-users-rest"
+      port: 8080
+      description: "REST adapter for JSONPlaceholder Users."
+      resources:
+        - path: "/v1/users"
+          name: "users"
+          description: "List and create users."
+          operations:
+            - method: GET
+              name: "listUsers"
+              description: "List all users."
+              call: "jsonplaceholder-users.listUsers"
+              outputParameters: [{ type: object, mapping: "$." }]
+            - method: POST
+              name: "createUser"
+              description: "Create a new user (simulated)."
+              call: "jsonplaceholder-users.createUser"
+              with: { "body": "rest.body" }
+              outputParameters: [{ type: object, mapping: "$." }]
+        - path: "/v1/users/{id}"
+          name: "user"
+          description: "Read, replace, update, or delete a single user."
+          operations:
+            - method: GET
+              name: "getUser"
+              description: "Get a single user by id."
+              call: "jsonplaceholder-users.getUser"
+              with: { "id": "rest.id" }
+              outputParameters: [{ type: object, mapping: "$." }]
+            - method: PUT
+              name: "replaceUser"
+              description: "Replace a user in full (simulated)."
+              call: "jsonplaceholder-users.replaceUser"
+              with: { "id": "rest.id", "body": "rest.body" }
+              outputParameters: [{ type: object, mapping: "$." }]
+            - method: PATCH
+              name: "updateUser"
+              description: "Partially update a user (simulated)."
+              call: "jsonplaceholder-users.updateUser"
+              with: { "id": "rest.id", "body": "rest.body" }
+              outputParameters: [{ type: object, mapping: "$." }]
+            - method: DELETE
+              name: "deleteUser"
+              description: "Delete a user (simulated)."
+              call: "jsonplaceholder-users.deleteUser"
+              with: { "id": "rest.id" }
+              outputParameters: [{ type: object, mapping: "$." }]
+        - path: "/v1/users/{id}/posts"
+          name: "user-posts"
+          description: "List posts authored by a single user."
+          operations:
+            - method: GET
+              name: "listUserPosts"
+              description: "List all posts authored by a single user."
+              call: "jsonplaceholder-users.listUserPosts"
+              with: { "id": "rest.id" }
+              outputParameters: [{ type: object, mapping: "$." }]
+        - path: "/v1/users/{id}/albums"
+          name: "user-albums"
+          description: "List albums owned by a single user."
+          operations:
+            - method: GET
+              name: "listUserAlbums"
+              description: "List all albums owned by a single user."
+              call: "jsonplaceholder-users.listUserAlbums"
+              with: { "id": "rest.id" }
+              outputParameters: [{ type: object, mapping: "$." }]
+        - path: "/v1/users/{id}/todos"
+          name: "user-todos"
+          description: "List todos owned by a single user."
+          operations:
+            - method: GET
+              name: "listUserTodos"
+              description: "List all todos owned by a single user."
+              call: "jsonplaceholder-users.listUserTodos"
+              with: { "id": "rest.id" }
+              outputParameters: [{ type: object, mapping: "$." }]
+
+    - type: mcp
+      namespace: "jsonplaceholder-users-mcp"
+      port: 9090
+      transport: http
+      description: "MCP adapter for JSONPlaceholder Users."
+      tools:
+        - name: "list-users"
+          description: "List all 10 sample users."
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: "jsonplaceholder-users.listUsers"
+          outputParameters: [{ type: object, mapping: "$." }]
+        - name: "create-user"
+          description: "Create a new user (simulated)."
+          hints: { readOnly: false, destructive: false, idempotent: false }
+          call: "jsonplaceholder-users.createUser"
+          with: { "body": "tools.body" }
+          outputParameters: [{ type: object, mapping: "$." }]
+        - name: "get-user"
+          description: "Get a single user by id."
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: "jsonplaceholder-users.getUser"
+          with: { "id": "tools.id" }
+          outputParameters: [{ type: object, mapping: "$." }]
+        - name: "replace-user"
+          description: "Replace a user in full (simulated)."
+          hints: { readOnly: false, destructive: false, idempotent: true }
+          call: "jsonplaceholder-users.replaceUser"
+          with: { "id": "tools.id", "body": "tools.body" }
+          outputParameters: [{ type: object, mapping: "$." }]
+        - name: "update-user"
+          description: "Partially update a user (simulated)."
+          hints: { readOnly: false, destructive: false, idempotent: true }
+          call: "jsonplaceholder-users.updateUser"
+          with: { "id": "tools.id", "body": "tools.body" }
+          outputParameters: [{ type: object, mapping: "$." }]
+        - name: "delete-user"
+          description: "Delete a user (simulated)."
+          hints: { readOnly: false, destructive: true, idempotent: true }
+          call: "jsonplaceholder-users.deleteUser"
+          with: { "id": "tools.id" }
+          outputParameters: [{ type: object, mapping: "$." }]
+        - name: "list-user-posts"
+          description: "List all posts authored by a single user."
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: "jsonplaceholder-users.listUserPosts"
+          with: { "id": "tools.id" }
+          outputParameters: [{ type: object, mapping: "$." }]
+        - name: "list-user-albums"
+          description: "List all albums owned by a single user."
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: "jsonplaceholder-users.listUserAlbums"
+          with: { "id": "tools.id" }
+          outputParameters: [{ type: object, mapping: "$." }]
+        - name: "list-user-todos"
+          description: "List all todos owned by a single user."
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: "jsonplaceholder-users.listUserTodos"
+          with: { "id": "tools.id" }
+          outputParameters: [{ type: object, mapping: "$." }]

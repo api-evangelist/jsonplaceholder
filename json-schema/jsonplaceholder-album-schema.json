@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/jsonplaceholder/refs/heads/main/json-schema/jsonplaceholder-album-schema.json",
+  "title": "Album",
+  "description": "A sample photo album owned by a user in the JSONPlaceholder dataset.",
+  "type": "object",
+  "required": ["id", "userId", "title"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique album identifier (1-100).",
+      "example": 1
+    },
+    "userId": {
+      "type": "integer",
+      "description": "Identifier of the user who owns the album.",
+      "example": 1
+    },
+    "title": {
+      "type": "string",
+      "description": "Album title.",
+      "example": "quidem molestiae enim"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/jsonplaceholder/refs/heads/main/json-structure/jsonplaceholder-todo-structure.json",
+  "name": "Todo",
+  "description": "A sample todo item owned by a user in the JSONPlaceholder dataset.",
+  "type": "object",
+  "required": ["id", "userId", "title", "completed"],
+  "properties": {
+    "id": { "type": "int32", "description": "Unique todo identifier (1-200)." },
+    "userId": { "type": "int32", "description": "Identifier of the user who owns the todo." },
+    "title": { "type": "string", "description": "Todo title." },
+    "completed": { "type": "boolean", "description": "Whether the todo is completed." }
+  }
+}

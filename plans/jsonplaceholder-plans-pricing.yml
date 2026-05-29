@@ -1,0 +1,74 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: JSONPlaceholder
+providerId: jsonplaceholder
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: true
+tags:
+  - Development
+  - Testing
+  - Fake API
+  - Open Source
+description: >-
+  JSONPlaceholder is a free public service backed by the open-source json-server
+  project. There is no commercial pricing surface, no signup, no paid tiers,
+  and no metered usage. The service is offered as-is, with no SLAs, and is
+  funded as a community project by typicode. Teams that need persistence,
+  authentication, or contractual guarantees are expected to self-host
+  json-server (or use typicode's My JSON Server) rather than purchase a tier
+  on jsonplaceholder.typicode.com.
+sources:
+  - https://jsonplaceholder.typicode.com
+  - https://jsonplaceholder.typicode.com/guide/
+  - https://github.com/typicode/jsonplaceholder
+  - https://github.com/typicode/json-server
+plans:
+  - id: jsonplaceholder-free
+    name: Free
+    type: freemium
+    description: >-
+      The only tier. Unlimited, anonymous, no-signup access to the full
+      JSONPlaceholder REST API. Write operations are accepted but not
+      persisted.
+    entries:
+      - label: API requests
+        name: api_requests
+        type: flat
+        metric: request
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '$0.00'
+        userMultiplied: false
+      - label: Authentication
+        name: authentication
+        type: flat
+        metric: varies
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 'none required'
+        userMultiplied: false
+      - label: Write persistence
+        name: write_persistence
+        type: flat
+        metric: varies
+        limit: 0
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 'simulated only — self-host json-server for real persistence'
+        userMultiplied: false
+    elements:
+      - name: All six relational resources (posts, comments, albums, photos, todos, users)
+      - name: GET, POST, PUT, PATCH, DELETE on every resource
+      - name: Nested routes (e.g. /posts/1/comments, /users/1/todos)
+      - name: Query-string filtering on any field
+      - name: CORS enabled for all origins
+      - name: HTTPS only
+      - name: No rate limits documented or enforced
+      - name: MIT-licensed source code on GitHub (typicode/jsonplaceholder)

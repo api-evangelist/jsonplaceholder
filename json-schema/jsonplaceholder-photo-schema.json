@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/jsonplaceholder/refs/heads/main/json-schema/jsonplaceholder-photo-schema.json",
+  "title": "Photo",
+  "description": "A sample photo belonging to an album in the JSONPlaceholder dataset.",
+  "type": "object",
+  "required": ["id", "albumId", "title", "url", "thumbnailUrl"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique photo identifier (1-5000).",
+      "example": 1
+    },
+    "albumId": {
+      "type": "integer",
+      "description": "Identifier of the album this photo belongs to.",
+      "example": 1
+    },
+    "title": {
+      "type": "string",
+      "description": "Photo title / caption.",
+      "example": "accusamus beatae ad facilis cum similique qui sunt"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Full-size image URL (placeholder service).",
+      "example": "https://via.placeholder.com/600/92c952"
+    },
+    "thumbnailUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Thumbnail image URL (placeholder service).",
+      "example": "https://via.placeholder.com/150/92c952"
+    }
+  }
+}

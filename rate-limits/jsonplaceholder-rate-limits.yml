@@ -1,0 +1,66 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: JSONPlaceholder
+providerId: jsonplaceholder
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Development
+  - Fake API
+description: >-
+  JSONPlaceholder does not publish or document any rate-limit numbers. The
+  service is a free best-effort offering that handles roughly three billion
+  requests per month without per-IP or per-key throttling. CDN-level
+  protections may apply at the edge but are not documented. Consumers should
+  treat the service as best-effort: do not rely on it for production traffic,
+  do not build dependencies on tight latency SLAs, and back off if you start
+  receiving 5xx responses or your traffic is identifiably abusive. For
+  guaranteed behavior, self-host json-server (the same open-source engine).
+sources:
+  - https://jsonplaceholder.typicode.com
+  - https://jsonplaceholder.typicode.com/guide/
+  - https://github.com/typicode/json-server
+responseCodes:
+  serverError: 500
+  notFound: 404
+limits:
+  - name: 'Documented rate limit'
+    scope: 'IP'
+    metric: 'varies'
+    limit: 'none documented — best-effort public service'
+    notes: >-
+      typicode does not publish per-second, per-minute, or per-day request
+      caps. The service is intentionally permissive for tutorials, demos, and
+      classrooms.
+  - name: 'Edge / CDN protection'
+    scope: 'IP'
+    metric: 'varies'
+    limit: 'undisclosed CDN-level abuse protection may apply'
+    notes: >-
+      A free public service of this scale is generally fronted by a CDN that
+      will throttle obviously abusive patterns (very high concurrency, bot
+      traffic). The thresholds are not published.
+policies:
+  - name: 'Treat as best-effort'
+    description: >-
+      JSONPlaceholder is a free community service. Consumers should not depend
+      on it for production traffic. If you need guaranteed availability or
+      throughput, self-host json-server locally.
+  - name: 'Back off on 5xx'
+    description: >-
+      If the service returns 5xx responses, apply exponential backoff with
+      jitter. Do not hammer the public endpoint.
+  - name: 'Avoid abuse patterns'
+    description: >-
+      Do not use JSONPlaceholder as a backend for a real product. Do not run
+      high-concurrency load tests against the public endpoint — run them
+      against a self-hosted json-server instead.
+  - name: 'Writes are simulated'
+    description: >-
+      POST, PUT, PATCH, and DELETE return success-shaped responses but do not
+      persist. If your client retries a write, the second response will look
+      identical to the first — there is no idempotency key surface because
+      there is no real persistence.

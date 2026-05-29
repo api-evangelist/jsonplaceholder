@@ -1,0 +1,242 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "JSONPlaceholder"
+  description: "Unified vocabulary covering JSONPlaceholder's operational REST surface and Naftiko capability surface across six resources."
+  created: "2026-05-29"
+  modified: "2026-05-29"
+
+operational:
+  apis:
+    - name: "JSONPlaceholder REST API"
+      namespace: "jsonplaceholder"
+      version: "1.0.0"
+      baseUrl: "https://jsonplaceholder.typicode.com"
+      status: active
+
+  resources:
+    - name: posts
+      api: jsonplaceholder
+      description: "Sample blog posts owned by users (100 items)."
+      actions: [list, get, create, replace, update, delete, listChildren]
+    - name: comments
+      api: jsonplaceholder
+      description: "Comments attached to posts (500 items)."
+      actions: [list, get, create, replace, update, delete]
+    - name: albums
+      api: jsonplaceholder
+      description: "Photo albums owned by users (100 items)."
+      actions: [list, get, create, replace, update, delete, listChildren]
+    - name: photos
+      api: jsonplaceholder
+      description: "Placeholder photos belonging to albums (5000 items)."
+      actions: [list, get, create, replace, update, delete]
+    - name: todos
+      api: jsonplaceholder
+      description: "Todo items owned by users (200 items)."
+      actions: [list, get, create, replace, update, delete]
+    - name: users
+      api: jsonplaceholder
+      description: "Users with profile, address, and company metadata (10 items)."
+      actions: [list, get, create, replace, update, delete, listChildren]
+
+  actions:
+    - name: list
+      httpMethod: GET
+      pattern: read
+      description: "Return all items in a collection (optionally filtered by query string)."
+    - name: get
+      httpMethod: GET
+      pattern: read
+      description: "Return a single resource by id."
+    - name: create
+      httpMethod: POST
+      pattern: write
+      description: "Create a new resource (simulated, not persisted)."
+    - name: replace
+      httpMethod: PUT
+      pattern: write
+      description: "Replace a resource in full (simulated)."
+    - name: update
+      httpMethod: PATCH
+      pattern: write
+      description: "Partially update a resource (simulated)."
+    - name: delete
+      httpMethod: DELETE
+      pattern: destructive
+      description: "Delete a resource (simulated)."
+    - name: listChildren
+      httpMethod: GET
+      pattern: read
+      description: "List the child resources of a single parent (e.g. /posts/1/comments)."
+
+  schemas:
+    core:
+      - name: Post
+        properties: [id, userId, title, body]
+      - name: Comment
+        properties: [id, postId, name, email, body]
+      - name: Album
+        properties: [id, userId, title]
+      - name: Photo
+        properties: [id, albumId, title, url, thumbnailUrl]
+      - name: Todo
+        properties: [id, userId, title, completed]
+      - name: User
+        properties: [id, name, username, email, phone, website, address, company]
+    nested:
+      - name: Address
+        properties: [street, suite, city, zipcode, geo]
+      - name: Geo
+        properties: [lat, lng]
+      - name: Company
+        properties: [name, catchPhrase, bs]
+
+  parameters:
+    identifiers:
+      - name: id
+        in: path
+        type: integer
+      - name: userId
+        in: query
+        type: integer
+      - name: postId
+        in: query
+        type: integer
+      - name: albumId
+        in: query
+        type: integer
+    filters:
+      - name: completed
+        in: query
+        type: boolean
+
+  enums: {}
+
+  authentication:
+    schemes: []
+    description: "No authentication of any kind — JSONPlaceholder is fully public."
+
+capability:
+  workflows:
+    - name: "JSONPlaceholder Posts"
+      file: capabilities/jsonplaceholder-posts.yaml
+      description: "Posts capability — 7 operations, full CRUD plus nested comments."
+      apis: [jsonplaceholder]
+      toolCount: 7
+      personas: [Frontend Developer, Tutorial Author]
+      domains: [Content]
+    - name: "JSONPlaceholder Comments"
+      file: capabilities/jsonplaceholder-comments.yaml
+      description: "Comments capability — 6 operations on the comments collection."
+      apis: [jsonplaceholder]
+      toolCount: 6
+      personas: [Frontend Developer]
+      domains: [Content]
+    - name: "JSONPlaceholder Albums"
+      file: capabilities/jsonplaceholder-albums.yaml
+      description: "Albums capability — 7 operations including nested photos."
+      apis: [jsonplaceholder]
+      toolCount: 7
+      personas: [Frontend Developer, Mobile Developer]
+      domains: [Media]
+    - name: "JSONPlaceholder Photos"
+      file: capabilities/jsonplaceholder-photos.yaml
+      description: "Photos capability — 6 operations on the photos collection."
+      apis: [jsonplaceholder]
+      toolCount: 6
+      personas: [Frontend Developer, Mobile Developer]
+      domains: [Media]
+    - name: "JSONPlaceholder Todos"
+      file: capabilities/jsonplaceholder-todos.yaml
+      description: "Todos capability — 6 operations on the todos collection."
+      apis: [jsonplaceholder]
+      toolCount: 6
+      personas: [Frontend Developer, Tutorial Author]
+      domains: [Productivity]
+    - name: "JSONPlaceholder Users"
+      file: capabilities/jsonplaceholder-users.yaml
+      description: "Users capability — 9 operations including nested posts, albums, and todos."
+      apis: [jsonplaceholder]
+      toolCount: 9
+      personas: [Frontend Developer, Tutorial Author]
+      domains: [Identity]
+
+  personas:
+    - id: frontend-developer
+      name: "Frontend Developer"
+      description: "Builds web UIs and wires JSONPlaceholder routes into React, Vue, Angular, or Svelte tutorials and demos."
+      workflows: [posts, comments, albums, photos, todos, users]
+    - id: mobile-developer
+      name: "Mobile Developer"
+      description: "Drives iOS and Android sample apps demonstrating list rendering, networking, and CRUD."
+      workflows: [albums, photos]
+    - id: tutorial-author
+      name: "Tutorial Author"
+      description: "Writes coding tutorials, bootcamp exercises, and workshops that need a deterministic JSON API."
+      workflows: [posts, todos, users]
+
+  domains:
+    - name: Content
+      description: "Blog post and comment surfaces."
+      resources: [posts, comments]
+    - name: Media
+      description: "Album and photo surfaces."
+      resources: [albums, photos]
+    - name: Productivity
+      description: "Todo-list surface."
+      resources: [todos]
+    - name: Identity
+      description: "User profile surface."
+      resources: [users]
+
+  namespaces:
+    - consumed: jsonplaceholder-posts
+      rest: jsonplaceholder-posts-rest
+      mcp: jsonplaceholder-posts-mcp
+    - consumed: jsonplaceholder-comments
+      rest: jsonplaceholder-comments-rest
+      mcp: jsonplaceholder-comments-mcp
+    - consumed: jsonplaceholder-albums
+      rest: jsonplaceholder-albums-rest
+      mcp: jsonplaceholder-albums-mcp
+    - consumed: jsonplaceholder-photos
+      rest: jsonplaceholder-photos-rest
+      mcp: jsonplaceholder-photos-mcp
+    - consumed: jsonplaceholder-todos
+      rest: jsonplaceholder-todos-rest
+      mcp: jsonplaceholder-todos-mcp
+    - consumed: jsonplaceholder-users
+      rest: jsonplaceholder-users-rest
+      mcp: jsonplaceholder-users-mcp
+
+  binds:
+    - name: JSONPLACEHOLDER_BASE_URL
+      description: "Optional override for the base URL; defaults to https://jsonplaceholder.typicode.com."
+      workflows: [posts, comments, albums, photos, todos, users]
+
+crossReference:
+  - resource: posts
+    operations: [listPosts, getPost, createPost, replacePost, updatePost, deletePost, listPostComments]
+    workflows: ["JSONPlaceholder Posts"]
+    personas: [frontend-developer, tutorial-author]
+  - resource: comments
+    operations: [listComments, getComment, createComment, replaceComment, updateComment, deleteComment]
+    workflows: ["JSONPlaceholder Comments"]
+    personas: [frontend-developer]
+  - resource: albums
+    operations: [listAlbums, getAlbum, createAlbum, replaceAlbum, updateAlbum, deleteAlbum, listAlbumPhotos]
+    workflows: ["JSONPlaceholder Albums"]
+    personas: [frontend-developer, mobile-developer]
+  - resource: photos
+    operations: [listPhotos, getPhoto, createPhoto, replacePhoto, updatePhoto, deletePhoto]
+    workflows: ["JSONPlaceholder Photos"]
+    personas: [frontend-developer, mobile-developer]
+  - resource: todos
+    operations: [listTodos, getTodo, createTodo, replaceTodo, updateTodo, deleteTodo]
+    workflows: ["JSONPlaceholder Todos"]
+    personas: [frontend-developer, tutorial-author]
+  - resource: users
+    operations: [listUsers, getUser, createUser, replaceUser, updateUser, deleteUser, listUserPosts, listUserAlbums, listUserTodos]
+    workflows: ["JSONPlaceholder Users"]
+    personas: [frontend-developer, tutorial-author]

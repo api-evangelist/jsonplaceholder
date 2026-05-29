@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/jsonplaceholder/refs/heads/main/json-structure/jsonplaceholder-post-structure.json",
+  "name": "Post",
+  "description": "A sample blog post owned by a user in the JSONPlaceholder dataset.",
+  "type": "object",
+  "required": ["id", "userId", "title", "body"],
+  "properties": {
+    "id": { "type": "int32", "description": "Unique post identifier (1-100)." },
+    "userId": { "type": "int32", "description": "Identifier of the user who authored the post (1-10)." },
+    "title": { "type": "string", "description": "Post title." },
+    "body": { "type": "string", "description": "Post body / content." }
+  }
+}

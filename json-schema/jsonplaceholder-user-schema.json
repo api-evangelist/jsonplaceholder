@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/jsonplaceholder/refs/heads/main/json-schema/jsonplaceholder-user-schema.json",
+  "title": "User",
+  "description": "A sample user with profile, address, and company metadata in the JSONPlaceholder dataset.",
+  "type": "object",
+  "required": ["id", "name", "username", "email"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique user identifier (1-10).",
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "Full display name of the user.",
+      "example": "Leanne Graham"
+    },
+    "username": {
+      "type": "string",
+      "description": "Username / handle.",
+      "example": "Bret"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Email address.",
+      "example": "Sincere@april.biz"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number (free-form string).",
+      "example": "1-770-736-8031 x56442"
+    },
+    "website": {
+      "type": "string",
+      "description": "Personal website (hostname or URL).",
+      "example": "hildegard.org"
+    },
+    "address": {
+      "type": "object",
+      "description": "Street, city, postal code, and geo coordinates.",
+      "properties": {
+        "street": { "type": "string", "example": "Kulas Light" },
+        "suite": { "type": "string", "example": "Apt. 556" },
+        "city": { "type": "string", "example": "Gwenborough" },
+        "zipcode": { "type": "string", "example": "92998-3874" },
+        "geo": {
+          "type": "object",
+          "properties": {
+            "lat": { "type": "string", "example": "-37.3159" },
+            "lng": { "type": "string", "example": "81.1496" }
+          }
+        }
+      }
+    },
+    "company": {
+      "type": "object",
+      "description": "User's company affiliation.",
+      "properties": {
+        "name": { "type": "string", "example": "Romaguera-Crona" },
+        "catchPhrase": { "type": "string", "example": "Multi-layered client-server neural-net" },
+        "bs": { "type": "string", "example": "harness real-time e-markets" }
+      }
+    }
+  }
+}

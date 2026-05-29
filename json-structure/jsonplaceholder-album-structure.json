@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/jsonplaceholder/refs/heads/main/json-structure/jsonplaceholder-album-structure.json",
+  "name": "Album",
+  "description": "A sample photo album owned by a user in the JSONPlaceholder dataset.",
+  "type": "object",
+  "required": ["id", "userId", "title"],
+  "properties": {
+    "id": { "type": "int32", "description": "Unique album identifier (1-100)." },
+    "userId": { "type": "int32", "description": "Identifier of the user who owns the album." },
+    "title": { "type": "string", "description": "Album title." }
+  }
+}

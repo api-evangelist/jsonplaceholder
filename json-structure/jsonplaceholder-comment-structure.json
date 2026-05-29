@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/jsonplaceholder/refs/heads/main/json-structure/jsonplaceholder-comment-structure.json",
+  "name": "Comment",
+  "description": "A sample comment attached to a post in the JSONPlaceholder dataset.",
+  "type": "object",
+  "required": ["id", "postId", "name", "email", "body"],
+  "properties": {
+    "id": { "type": "int32", "description": "Unique comment identifier (1-500)." },
+    "postId": { "type": "int32", "description": "Identifier of the post this comment belongs to." },
+    "name": { "type": "string", "description": "Display name / subject of the comment." },
+    "email": { "type": "string", "description": "Email address of the commenter." },
+    "body": { "type": "string", "description": "Comment body text." }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/jsonplaceholder/refs/heads/main/json-structure/jsonplaceholder-photo-structure.json",
+  "name": "Photo",
+  "description": "A sample photo belonging to an album in the JSONPlaceholder dataset.",
+  "type": "object",
+  "required": ["id", "albumId", "title", "url", "thumbnailUrl"],
+  "properties": {
+    "id": { "type": "int32", "description": "Unique photo identifier (1-5000)." },
+    "albumId": { "type": "int32", "description": "Identifier of the album this photo belongs to." },
+    "title": { "type": "string", "description": "Photo title / caption." },
+    "url": { "type": "uri", "description": "Full-size image URL (placeholder service)." },
+    "thumbnailUrl": { "type": "uri", "description": "Thumbnail image URL (placeholder service)." }
+  }
+}

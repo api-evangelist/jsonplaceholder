@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/jsonplaceholder/refs/heads/main/json-schema/jsonplaceholder-todo-schema.json",
+  "title": "Todo",
+  "description": "A sample todo item owned by a user in the JSONPlaceholder dataset.",
+  "type": "object",
+  "required": ["id", "userId", "title", "completed"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique todo identifier (1-200).",
+      "example": 1
+    },
+    "userId": {
+      "type": "integer",
+      "description": "Identifier of the user who owns the todo.",
+      "example": 1
+    },
+    "title": {
+      "type": "string",
+      "description": "Todo title.",
+      "example": "delectus aut autem"
+    },
+    "completed": {
+      "type": "boolean",
+      "description": "Whether the todo is completed.",
+      "example": false
+    }
+  }
+}

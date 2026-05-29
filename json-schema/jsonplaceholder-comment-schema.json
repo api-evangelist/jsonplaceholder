@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/jsonplaceholder/refs/heads/main/json-schema/jsonplaceholder-comment-schema.json",
+  "title": "Comment",
+  "description": "A sample comment attached to a post in the JSONPlaceholder dataset.",
+  "type": "object",
+  "required": ["id", "postId", "name", "email", "body"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique comment identifier (1-500).",
+      "example": 1
+    },
+    "postId": {
+      "type": "integer",
+      "description": "Identifier of the post this comment belongs to.",
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name / subject of the comment.",
+      "example": "id labore ex et quam laborum"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Email address of the commenter.",
+      "example": "Eliseo@gardner.biz"
+    },
+    "body": {
+      "type": "string",
+      "description": "Comment body text.",
+      "example": "laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus"
+    }
+  }
+}
