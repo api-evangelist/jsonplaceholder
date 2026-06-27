@@ -81,22 +81,22 @@ apis:
         title: User Structure
       - type: JSONLD
         url: json-ld/jsonplaceholder-context.jsonld
-      - type: Example
+      - type: Examples
         url: examples/jsonplaceholder-post-example.json
         title: Post Example
-      - type: Example
+      - type: Examples
         url: examples/jsonplaceholder-comment-example.json
         title: Comment Example
-      - type: Example
+      - type: Examples
         url: examples/jsonplaceholder-album-example.json
         title: Album Example
-      - type: Example
+      - type: Examples
         url: examples/jsonplaceholder-photo-example.json
         title: Photo Example
-      - type: Example
+      - type: Examples
         url: examples/jsonplaceholder-todo-example.json
         title: Todo Example
-      - type: Example
+      - type: Examples
         url: examples/jsonplaceholder-user-example.json
         title: User Example
 common:
