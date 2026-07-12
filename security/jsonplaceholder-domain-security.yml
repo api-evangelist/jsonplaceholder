@@ -1,0 +1,15 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: jsonplaceholder.typicode.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 29 22:44:15 2026 GMT
+  hsts: false
+domains:
+- domain: typicode.com
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false
