@@ -100,6 +100,8 @@ apis:
         url: examples/jsonplaceholder-user-example.json
         title: User Example
 common:
+  - type: AgenticAccess
+    url: agentic-access/jsonplaceholder-agentic-access.yml
   - type: DomainSecurity
     url: security/jsonplaceholder-domain-security.yml
   - type: Website
