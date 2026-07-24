@@ -1,0 +1,294 @@
+openapi: 3.0.3
+info:
+  title: JSONPlaceholder REST Albums Posts API
+  description: 'JSONPlaceholder is a free, no-auth fake REST API for prototyping, testing, and teaching. It exposes six relational resources — posts, comments, albums, photos, todos, and users — over standard REST routes (GET, POST, PUT, PATCH, DELETE). Write operations are simulated: the service responds as though the change succeeded, but no data is persisted on the server. The service is powered by the open-source json-server engine, also by typicode.'
+  version: 1.0.0
+  contact:
+    name: typicode
+    url: https://github.com/typicode/jsonplaceholder
+  license:
+    name: MIT
+    url: https://github.com/typicode/jsonplaceholder/blob/master/LICENSE
+  x-generated-from: documentation
+  x-last-validated: '2026-05-29'
+servers:
+- url: https://jsonplaceholder.typicode.com
+  description: Public production endpoint (no authentication required)
+tags:
+- name: Posts
+  description: 100 sample blog posts owned by users
+paths:
+  /posts:
+    get:
+      operationId: listPosts
+      summary: JSONPlaceholder List Posts
+      description: Returns all 100 sample posts. Supports filtering by any field via query parameters (e.g. `?userId=1`).
+      tags:
+      - Posts
+      parameters:
+      - name: userId
+        in: query
+        description: Filter posts by owning user id.
+        required: false
+        schema:
+          type: integer
+        example: 1
+      - name: id
+        in: query
+        description: Filter posts by post id.
+        required: false
+        schema:
+          type: integer
+        example: 1
+      responses:
+        '200':
+          description: Array of posts.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createPost
+      summary: JSONPlaceholder Create Post
+      description: Creates a new post. Returns the created post with a generated id, but no data is actually persisted on the server.
+      tags:
+      - Posts
+      requestBody:
+        required: true
+        description: New post payload.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostInput'
+      responses:
+        '201':
+          description: Created post (simulated, not persisted).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /posts/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: Post identifier (1-100).
+      schema:
+        type: integer
+      example: 1
+    get:
+      operationId: getPost
+      summary: JSONPlaceholder Get Post
+      description: Returns a single post by id.
+      tags:
+      - Posts
+      responses:
+        '200':
+          description: A single post.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        '404':
+          description: Post not found.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      operationId: replacePost
+      summary: JSONPlaceholder Replace Post
+      description: Replaces a post in full. Returns the updated post but no data is actually persisted on the server.
+      tags:
+      - Posts
+      requestBody:
+        required: true
+        description: Full replacement payload.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        '200':
+          description: Updated post (simulated, not persisted).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      operationId: updatePost
+      summary: JSONPlaceholder Update Post
+      description: Partially updates a post. Returns the merged post but no data is actually persisted on the server.
+      tags:
+      - Posts
+      requestBody:
+        required: true
+        description: Partial update payload.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostInput'
+      responses:
+        '200':
+          description: Updated post (simulated, not persisted).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deletePost
+      summary: JSONPlaceholder Delete Post
+      description: Deletes a post. Returns an empty object but no data is actually deleted on the server.
+      tags:
+      - Posts
+      responses:
+        '200':
+          description: Deletion accepted (simulated, not persisted).
+          content:
+            application/json:
+              schema:
+                type: object
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /posts/{id}/comments:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: Post identifier.
+      schema:
+        type: integer
+      example: 1
+    get:
+      operationId: listPostComments
+      summary: JSONPlaceholder List Post Comments
+      description: Returns all comments belonging to a single post.
+      tags:
+      - Posts
+      responses:
+        '200':
+          description: Array of comments for the post.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /users/{id}/posts:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: User identifier.
+      schema:
+        type: integer
+      example: 1
+    get:
+      operationId: listUserPosts
+      summary: JSONPlaceholder List User Posts
+      description: Returns all posts authored by a single user.
+      tags:
+      - Posts
+      responses:
+        '200':
+          description: Array of posts for the user.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Post:
+      type: object
+      description: A sample blog post owned by a user.
+      required:
+      - id
+      - userId
+      - title
+      - body
+      properties:
+        id:
+          type: integer
+          description: Unique post identifier (1-100).
+          example: 1
+        userId:
+          type: integer
+          description: Identifier of the user who authored the post (1-10).
+          example: 1
+        title:
+          type: string
+          description: Post title.
+          example: sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+        body:
+          type: string
+          description: Post body / content.
+          example: quia et suscipit suscipit recusandae consequuntur expedita et cum
+    PostInput:
+      type: object
+      description: Payload for creating or partially updating a post.
+      properties:
+        userId:
+          type: integer
+          description: Identifier of the user who authored the post.
+          example: 1
+        title:
+          type: string
+          description: Post title.
+          example: My New Post
+        body:
+          type: string
+          description: Post body / content.
+          example: This is the body of my new post.
+    Comment:
+      type: object
+      description: A sample comment attached to a post.
+      required:
+      - id
+      - postId
+      - name
+      - email
+      - body
+      properties:
+        id:
+          type: integer
+          description: Unique comment identifier (1-500).
+          example: 1
+        postId:
+          type: integer
+          description: Identifier of the post this comment belongs to.
+          example: 1
+        name:
+          type: string
+          description: Display name / subject of the comment.
+          example: id labore ex et quam laborum
+        email:
+          type: string
+          format: email
+          description: Email address of the commenter.
+          example: Eliseo@gardner.biz
+        body:
+          type: string
+          description: Comment body text.
+          example: laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus

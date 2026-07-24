@@ -1,0 +1,274 @@
+openapi: 3.0.3
+info:
+  title: JSONPlaceholder REST Albums API
+  description: 'JSONPlaceholder is a free, no-auth fake REST API for prototyping, testing, and teaching. It exposes six relational resources — posts, comments, albums, photos, todos, and users — over standard REST routes (GET, POST, PUT, PATCH, DELETE). Write operations are simulated: the service responds as though the change succeeded, but no data is persisted on the server. The service is powered by the open-source json-server engine, also by typicode.'
+  version: 1.0.0
+  contact:
+    name: typicode
+    url: https://github.com/typicode/jsonplaceholder
+  license:
+    name: MIT
+    url: https://github.com/typicode/jsonplaceholder/blob/master/LICENSE
+  x-generated-from: documentation
+  x-last-validated: '2026-05-29'
+servers:
+- url: https://jsonplaceholder.typicode.com
+  description: Public production endpoint (no authentication required)
+tags:
+- name: Albums
+  description: 100 sample photo albums owned by users
+paths:
+  /albums:
+    get:
+      operationId: listAlbums
+      summary: JSONPlaceholder List Albums
+      description: Returns all 100 sample albums. Supports filtering by any field via query parameters (e.g. `?userId=1`).
+      tags:
+      - Albums
+      parameters:
+      - name: userId
+        in: query
+        description: Filter albums by owning user id.
+        required: false
+        schema:
+          type: integer
+        example: 1
+      responses:
+        '200':
+          description: Array of albums.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Album'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createAlbum
+      summary: JSONPlaceholder Create Album
+      description: Creates a new album (simulated).
+      tags:
+      - Albums
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlbumInput'
+      responses:
+        '201':
+          description: Created album (simulated).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Album'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /albums/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: Album identifier (1-100).
+      schema:
+        type: integer
+      example: 1
+    get:
+      operationId: getAlbum
+      summary: JSONPlaceholder Get Album
+      description: Returns a single album by id.
+      tags:
+      - Albums
+      responses:
+        '200':
+          description: A single album.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Album'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      operationId: replaceAlbum
+      summary: JSONPlaceholder Replace Album
+      description: Replaces an album in full (simulated).
+      tags:
+      - Albums
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Album'
+      responses:
+        '200':
+          description: Updated album (simulated).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Album'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      operationId: updateAlbum
+      summary: JSONPlaceholder Update Album
+      description: Partially updates an album (simulated).
+      tags:
+      - Albums
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AlbumInput'
+      responses:
+        '200':
+          description: Updated album (simulated).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Album'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteAlbum
+      summary: JSONPlaceholder Delete Album
+      description: Deletes an album (simulated).
+      tags:
+      - Albums
+      responses:
+        '200':
+          description: Deletion accepted (simulated).
+          content:
+            application/json:
+              schema:
+                type: object
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /albums/{id}/photos:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: Album identifier.
+      schema:
+        type: integer
+      example: 1
+    get:
+      operationId: listAlbumPhotos
+      summary: JSONPlaceholder List Album Photos
+      description: Returns all photos belonging to a single album.
+      tags:
+      - Albums
+      responses:
+        '200':
+          description: Array of photos for the album.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Photo'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /users/{id}/albums:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: User identifier.
+      schema:
+        type: integer
+      example: 1
+    get:
+      operationId: listUserAlbums
+      summary: JSONPlaceholder List User Albums
+      description: Returns all albums owned by a single user.
+      tags:
+      - Albums
+      responses:
+        '200':
+          description: Array of albums for the user.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Album'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Photo:
+      type: object
+      description: A sample photo belonging to an album.
+      required:
+      - id
+      - albumId
+      - title
+      - url
+      - thumbnailUrl
+      properties:
+        id:
+          type: integer
+          description: Unique photo identifier (1-5000).
+          example: 1
+        albumId:
+          type: integer
+          description: Identifier of the album this photo belongs to.
+          example: 1
+        title:
+          type: string
+          description: Photo title / caption.
+          example: accusamus beatae ad facilis cum similique qui sunt
+        url:
+          type: string
+          format: uri
+          description: Full-size image URL (placeholder service).
+          example: https://via.placeholder.com/600/92c952
+        thumbnailUrl:
+          type: string
+          format: uri
+          description: Thumbnail image URL (placeholder service).
+          example: https://via.placeholder.com/150/92c952
+    AlbumInput:
+      type: object
+      description: Payload for creating or partially updating an album.
+      properties:
+        userId:
+          type: integer
+          description: Identifier of the user who owns the album.
+          example: 1
+        title:
+          type: string
+          description: Album title.
+          example: Holiday Album
+    Album:
+      type: object
+      description: A sample photo album owned by a user.
+      required:
+      - id
+      - userId
+      - title
+      properties:
+        id:
+          type: integer
+          description: Unique album identifier (1-100).
+          example: 1
+        userId:
+          type: integer
+          description: Identifier of the user who owns the album.
+          example: 1
+        title:
+          type: string
+          description: Album title.
+          example: quidem molestiae enim

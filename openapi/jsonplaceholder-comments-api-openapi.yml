@@ -1,0 +1,236 @@
+openapi: 3.0.3
+info:
+  title: JSONPlaceholder REST Albums Comments API
+  description: 'JSONPlaceholder is a free, no-auth fake REST API for prototyping, testing, and teaching. It exposes six relational resources — posts, comments, albums, photos, todos, and users — over standard REST routes (GET, POST, PUT, PATCH, DELETE). Write operations are simulated: the service responds as though the change succeeded, but no data is persisted on the server. The service is powered by the open-source json-server engine, also by typicode.'
+  version: 1.0.0
+  contact:
+    name: typicode
+    url: https://github.com/typicode/jsonplaceholder
+  license:
+    name: MIT
+    url: https://github.com/typicode/jsonplaceholder/blob/master/LICENSE
+  x-generated-from: documentation
+  x-last-validated: '2026-05-29'
+servers:
+- url: https://jsonplaceholder.typicode.com
+  description: Public production endpoint (no authentication required)
+tags:
+- name: Comments
+  description: 500 sample comments belonging to posts
+paths:
+  /posts/{id}/comments:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: Post identifier.
+      schema:
+        type: integer
+      example: 1
+    get:
+      operationId: listPostComments
+      summary: JSONPlaceholder List Post Comments
+      description: Returns all comments belonging to a single post.
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: Array of comments for the post.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /comments:
+    get:
+      operationId: listComments
+      summary: JSONPlaceholder List Comments
+      description: Returns all 500 sample comments. Supports filtering by any field via query parameters (e.g. `?postId=1`).
+      tags:
+      - Comments
+      parameters:
+      - name: postId
+        in: query
+        description: Filter comments by post id.
+        required: false
+        schema:
+          type: integer
+        example: 1
+      responses:
+        '200':
+          description: Array of comments.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createComment
+      summary: JSONPlaceholder Create Comment
+      description: Creates a new comment. Returns the created comment with a generated id but no data is persisted.
+      tags:
+      - Comments
+      requestBody:
+        required: true
+        description: New comment payload.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentInput'
+      responses:
+        '201':
+          description: Created comment (simulated).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /comments/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: Comment identifier (1-500).
+      schema:
+        type: integer
+      example: 1
+    get:
+      operationId: getComment
+      summary: JSONPlaceholder Get Comment
+      description: Returns a single comment by id.
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: A single comment.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      operationId: replaceComment
+      summary: JSONPlaceholder Replace Comment
+      description: Replaces a comment in full (simulated).
+      tags:
+      - Comments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+      responses:
+        '200':
+          description: Updated comment (simulated).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      operationId: updateComment
+      summary: JSONPlaceholder Update Comment
+      description: Partially updates a comment (simulated).
+      tags:
+      - Comments
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommentInput'
+      responses:
+        '200':
+          description: Updated comment (simulated).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteComment
+      summary: JSONPlaceholder Delete Comment
+      description: Deletes a comment (simulated).
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: Deletion accepted (simulated).
+          content:
+            application/json:
+              schema:
+                type: object
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    CommentInput:
+      type: object
+      description: Payload for creating or partially updating a comment.
+      properties:
+        postId:
+          type: integer
+          description: Identifier of the post being commented on.
+          example: 1
+        name:
+          type: string
+          description: Display name / subject of the comment.
+          example: Great post
+        email:
+          type: string
+          format: email
+          description: Email address of the commenter.
+          example: reader@example.com
+        body:
+          type: string
+          description: Comment body text.
+          example: Thanks for writing this.
+    Comment:
+      type: object
+      description: A sample comment attached to a post.
+      required:
+      - id
+      - postId
+      - name
+      - email
+      - body
+      properties:
+        id:
+          type: integer
+          description: Unique comment identifier (1-500).
+          example: 1
+        postId:
+          type: integer
+          description: Identifier of the post this comment belongs to.
+          example: 1
+        name:
+          type: string
+          description: Display name / subject of the comment.
+          example: id labore ex et quam laborum
+        email:
+          type: string
+          format: email
+          description: Email address of the commenter.
+          example: Eliseo@gardner.biz
+        body:
+          type: string
+          description: Comment body text.
+          example: laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus

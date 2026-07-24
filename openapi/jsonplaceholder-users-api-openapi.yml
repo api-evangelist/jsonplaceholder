@@ -1,0 +1,402 @@
+openapi: 3.0.3
+info:
+  title: JSONPlaceholder REST Albums Users API
+  description: 'JSONPlaceholder is a free, no-auth fake REST API for prototyping, testing, and teaching. It exposes six relational resources — posts, comments, albums, photos, todos, and users — over standard REST routes (GET, POST, PUT, PATCH, DELETE). Write operations are simulated: the service responds as though the change succeeded, but no data is persisted on the server. The service is powered by the open-source json-server engine, also by typicode.'
+  version: 1.0.0
+  contact:
+    name: typicode
+    url: https://github.com/typicode/jsonplaceholder
+  license:
+    name: MIT
+    url: https://github.com/typicode/jsonplaceholder/blob/master/LICENSE
+  x-generated-from: documentation
+  x-last-validated: '2026-05-29'
+servers:
+- url: https://jsonplaceholder.typicode.com
+  description: Public production endpoint (no authentication required)
+tags:
+- name: Users
+  description: 10 sample users with profile, address, and company metadata
+paths:
+  /users:
+    get:
+      operationId: listUsers
+      summary: JSONPlaceholder List Users
+      description: Returns all 10 sample users with profile, address, and company metadata.
+      tags:
+      - Users
+      responses:
+        '200':
+          description: Array of users.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createUser
+      summary: JSONPlaceholder Create User
+      description: Creates a new user (simulated).
+      tags:
+      - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInput'
+      responses:
+        '201':
+          description: Created user (simulated).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /users/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: User identifier (1-10).
+      schema:
+        type: integer
+      example: 1
+    get:
+      operationId: getUser
+      summary: JSONPlaceholder Get User
+      description: Returns a single user by id.
+      tags:
+      - Users
+      responses:
+        '200':
+          description: A single user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      operationId: replaceUser
+      summary: JSONPlaceholder Replace User
+      description: Replaces a user in full (simulated).
+      tags:
+      - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: Updated user (simulated).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      operationId: updateUser
+      summary: JSONPlaceholder Update User
+      description: Partially updates a user (simulated).
+      tags:
+      - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInput'
+      responses:
+        '200':
+          description: Updated user (simulated).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteUser
+      summary: JSONPlaceholder Delete User
+      description: Deletes a user (simulated).
+      tags:
+      - Users
+      responses:
+        '200':
+          description: Deletion accepted (simulated).
+          content:
+            application/json:
+              schema:
+                type: object
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /users/{id}/posts:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: User identifier.
+      schema:
+        type: integer
+      example: 1
+    get:
+      operationId: listUserPosts
+      summary: JSONPlaceholder List User Posts
+      description: Returns all posts authored by a single user.
+      tags:
+      - Users
+      responses:
+        '200':
+          description: Array of posts for the user.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /users/{id}/albums:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: User identifier.
+      schema:
+        type: integer
+      example: 1
+    get:
+      operationId: listUserAlbums
+      summary: JSONPlaceholder List User Albums
+      description: Returns all albums owned by a single user.
+      tags:
+      - Users
+      responses:
+        '200':
+          description: Array of albums for the user.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Album'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /users/{id}/todos:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: User identifier.
+      schema:
+        type: integer
+      example: 1
+    get:
+      operationId: listUserTodos
+      summary: JSONPlaceholder List User Todos
+      description: Returns all todos owned by a single user.
+      tags:
+      - Users
+      responses:
+        '200':
+          description: Array of todos for the user.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Todo'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Todo:
+      type: object
+      description: A sample todo item owned by a user.
+      required:
+      - id
+      - userId
+      - title
+      - completed
+      properties:
+        id:
+          type: integer
+          description: Unique todo identifier (1-200).
+          example: 1
+        userId:
+          type: integer
+          description: Identifier of the user who owns the todo.
+          example: 1
+        title:
+          type: string
+          description: Todo title.
+          example: delectus aut autem
+        completed:
+          type: boolean
+          description: Whether the todo is completed.
+          example: false
+    User:
+      type: object
+      description: A sample user with profile, address, and company metadata.
+      required:
+      - id
+      - name
+      - username
+      - email
+      properties:
+        id:
+          type: integer
+          description: Unique user identifier (1-10).
+          example: 1
+        name:
+          type: string
+          description: Full display name of the user.
+          example: Leanne Graham
+        username:
+          type: string
+          description: Username / handle.
+          example: Bret
+        email:
+          type: string
+          format: email
+          description: Email address.
+          example: Sincere@april.biz
+        phone:
+          type: string
+          description: Phone number (free-form string).
+          example: 1-770-736-8031 x56442
+        website:
+          type: string
+          description: Personal website (hostname or URL).
+          example: hildegard.org
+        address:
+          $ref: '#/components/schemas/Address'
+        company:
+          $ref: '#/components/schemas/Company'
+    UserInput:
+      type: object
+      description: Payload for creating or partially updating a user.
+      properties:
+        name:
+          type: string
+          example: Ada Lovelace
+        username:
+          type: string
+          example: alovelace
+        email:
+          type: string
+          format: email
+          example: ada@example.com
+        phone:
+          type: string
+          example: 555-0100
+        website:
+          type: string
+          example: example.com
+        address:
+          $ref: '#/components/schemas/Address'
+        company:
+          $ref: '#/components/schemas/Company'
+    Address:
+      type: object
+      description: Street, city, postal code, and geo coordinates.
+      properties:
+        street:
+          type: string
+          example: Kulas Light
+        suite:
+          type: string
+          example: Apt. 556
+        city:
+          type: string
+          example: Gwenborough
+        zipcode:
+          type: string
+          example: 92998-3874
+        geo:
+          $ref: '#/components/schemas/Geo'
+    Album:
+      type: object
+      description: A sample photo album owned by a user.
+      required:
+      - id
+      - userId
+      - title
+      properties:
+        id:
+          type: integer
+          description: Unique album identifier (1-100).
+          example: 1
+        userId:
+          type: integer
+          description: Identifier of the user who owns the album.
+          example: 1
+        title:
+          type: string
+          description: Album title.
+          example: quidem molestiae enim
+    Geo:
+      type: object
+      description: Latitude and longitude (strings in the JSONPlaceholder dataset).
+      properties:
+        lat:
+          type: string
+          example: '-37.3159'
+        lng:
+          type: string
+          example: '81.1496'
+    Company:
+      type: object
+      description: User's company affiliation.
+      properties:
+        name:
+          type: string
+          example: Romaguera-Crona
+        catchPhrase:
+          type: string
+          example: Multi-layered client-server neural-net
+        bs:
+          type: string
+          example: harness real-time e-markets
+    Post:
+      type: object
+      description: A sample blog post owned by a user.
+      required:
+      - id
+      - userId
+      - title
+      - body
+      properties:
+        id:
+          type: integer
+          description: Unique post identifier (1-100).
+          example: 1
+        userId:
+          type: integer
+          description: Identifier of the user who authored the post (1-10).
+          example: 1
+        title:
+          type: string
+          description: Post title.
+          example: sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+        body:
+          type: string
+          description: Post body / content.
+          example: quia et suscipit suscipit recusandae consequuntur expedita et cum

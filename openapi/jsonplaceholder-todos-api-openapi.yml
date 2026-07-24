@@ -1,0 +1,231 @@
+openapi: 3.0.3
+info:
+  title: JSONPlaceholder REST Albums Todos API
+  description: 'JSONPlaceholder is a free, no-auth fake REST API for prototyping, testing, and teaching. It exposes six relational resources — posts, comments, albums, photos, todos, and users — over standard REST routes (GET, POST, PUT, PATCH, DELETE). Write operations are simulated: the service responds as though the change succeeded, but no data is persisted on the server. The service is powered by the open-source json-server engine, also by typicode.'
+  version: 1.0.0
+  contact:
+    name: typicode
+    url: https://github.com/typicode/jsonplaceholder
+  license:
+    name: MIT
+    url: https://github.com/typicode/jsonplaceholder/blob/master/LICENSE
+  x-generated-from: documentation
+  x-last-validated: '2026-05-29'
+servers:
+- url: https://jsonplaceholder.typicode.com
+  description: Public production endpoint (no authentication required)
+tags:
+- name: Todos
+  description: 200 sample todo items owned by users
+paths:
+  /todos:
+    get:
+      operationId: listTodos
+      summary: JSONPlaceholder List Todos
+      description: Returns all 200 sample todos. Supports filtering by any field via query parameters (e.g. `?userId=1&completed=true`).
+      tags:
+      - Todos
+      parameters:
+      - name: userId
+        in: query
+        description: Filter todos by owning user id.
+        required: false
+        schema:
+          type: integer
+        example: 1
+      - name: completed
+        in: query
+        description: Filter todos by completion state.
+        required: false
+        schema:
+          type: boolean
+        example: false
+      responses:
+        '200':
+          description: Array of todos.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Todo'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createTodo
+      summary: JSONPlaceholder Create Todo
+      description: Creates a new todo (simulated).
+      tags:
+      - Todos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TodoInput'
+      responses:
+        '201':
+          description: Created todo (simulated).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /todos/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: Todo identifier (1-200).
+      schema:
+        type: integer
+      example: 1
+    get:
+      operationId: getTodo
+      summary: JSONPlaceholder Get Todo
+      description: Returns a single todo by id.
+      tags:
+      - Todos
+      responses:
+        '200':
+          description: A single todo.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      operationId: replaceTodo
+      summary: JSONPlaceholder Replace Todo
+      description: Replaces a todo in full (simulated).
+      tags:
+      - Todos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Todo'
+      responses:
+        '200':
+          description: Updated todo (simulated).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      operationId: updateTodo
+      summary: JSONPlaceholder Update Todo
+      description: Partially updates a todo (simulated).
+      tags:
+      - Todos
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TodoInput'
+      responses:
+        '200':
+          description: Updated todo (simulated).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteTodo
+      summary: JSONPlaceholder Delete Todo
+      description: Deletes a todo (simulated).
+      tags:
+      - Todos
+      responses:
+        '200':
+          description: Deletion accepted (simulated).
+          content:
+            application/json:
+              schema:
+                type: object
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /users/{id}/todos:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: User identifier.
+      schema:
+        type: integer
+      example: 1
+    get:
+      operationId: listUserTodos
+      summary: JSONPlaceholder List User Todos
+      description: Returns all todos owned by a single user.
+      tags:
+      - Todos
+      responses:
+        '200':
+          description: Array of todos for the user.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Todo'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Todo:
+      type: object
+      description: A sample todo item owned by a user.
+      required:
+      - id
+      - userId
+      - title
+      - completed
+      properties:
+        id:
+          type: integer
+          description: Unique todo identifier (1-200).
+          example: 1
+        userId:
+          type: integer
+          description: Identifier of the user who owns the todo.
+          example: 1
+        title:
+          type: string
+          description: Todo title.
+          example: delectus aut autem
+        completed:
+          type: boolean
+          description: Whether the todo is completed.
+          example: false
+    TodoInput:
+      type: object
+      description: Payload for creating or partially updating a todo.
+      properties:
+        userId:
+          type: integer
+          description: Identifier of the user who owns the todo.
+          example: 1
+        title:
+          type: string
+          description: Todo title.
+          example: Write integration tests
+        completed:
+          type: boolean
+          description: Whether the todo is completed.
+          example: false
