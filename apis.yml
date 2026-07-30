@@ -1,4 +1,17 @@
 aid: jsonplaceholder
+accessModel:
+  pricing: free
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Free · Open access
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/jsonplaceholder.png
 name: JSONPlaceholder
 description: >-
   JSONPlaceholder is a free, no-auth fake REST API for prototyping, tutorials, and testing. It exposes six relational
@@ -24,81 +37,318 @@ tags:
   - Open Source
   - REST
 apis:
-  - name: JSONPlaceholder REST API
-    description: >-
-      Free fake REST API surface exposing six relational resources (posts, comments, albums, photos, todos, users).
-      Supports GET / POST / PUT / PATCH / DELETE plus nested routes (e.g. /posts/1/comments) and basic query-string
-      filtering (e.g. /comments?postId=1). Write operations are simulated — the service responds with the expected
-      payload but does not persist changes.
-    humanURL: https://jsonplaceholder.typicode.com
-    baseURL: https://jsonplaceholder.typicode.com
-    tags:
-      - REST
-      - Fake API
-      - Testing
-    properties:
-      - type: Documentation
-        url: https://jsonplaceholder.typicode.com
-      - type: GettingStarted
-        url: https://jsonplaceholder.typicode.com/guide/
-      - type: OpenAPI
-        url: openapi/jsonplaceholder-openapi.yml
-      - type: JSONSchema
-        url: json-schema/jsonplaceholder-post-schema.json
-        title: Post Schema
-      - type: JSONSchema
-        url: json-schema/jsonplaceholder-comment-schema.json
-        title: Comment Schema
-      - type: JSONSchema
-        url: json-schema/jsonplaceholder-album-schema.json
-        title: Album Schema
-      - type: JSONSchema
-        url: json-schema/jsonplaceholder-photo-schema.json
-        title: Photo Schema
-      - type: JSONSchema
-        url: json-schema/jsonplaceholder-todo-schema.json
-        title: Todo Schema
-      - type: JSONSchema
-        url: json-schema/jsonplaceholder-user-schema.json
-        title: User Schema
-      - type: JSONStructure
-        url: json-structure/jsonplaceholder-post-structure.json
-        title: Post Structure
-      - type: JSONStructure
-        url: json-structure/jsonplaceholder-comment-structure.json
-        title: Comment Structure
-      - type: JSONStructure
-        url: json-structure/jsonplaceholder-album-structure.json
-        title: Album Structure
-      - type: JSONStructure
-        url: json-structure/jsonplaceholder-photo-structure.json
-        title: Photo Structure
-      - type: JSONStructure
-        url: json-structure/jsonplaceholder-todo-structure.json
-        title: Todo Structure
-      - type: JSONStructure
-        url: json-structure/jsonplaceholder-user-structure.json
-        title: User Structure
-      - type: JSONLD
-        url: json-ld/jsonplaceholder-context.jsonld
-      - type: Examples
-        url: examples/jsonplaceholder-post-example.json
-        title: Post Example
-      - type: Examples
-        url: examples/jsonplaceholder-comment-example.json
-        title: Comment Example
-      - type: Examples
-        url: examples/jsonplaceholder-album-example.json
-        title: Album Example
-      - type: Examples
-        url: examples/jsonplaceholder-photo-example.json
-        title: Photo Example
-      - type: Examples
-        url: examples/jsonplaceholder-todo-example.json
-        title: Todo Example
-      - type: Examples
-        url: examples/jsonplaceholder-user-example.json
-        title: User Example
+- aid: jsonplaceholder:jsonplaceholder-albums-api
+  name: JSONPlaceholder Albums API
+  description: 100 sample photo albums owned by users
+  humanURL: https://jsonplaceholder.typicode.com
+  baseURL: https://jsonplaceholder.typicode.com
+  tags:
+  - Albums
+  properties:
+  - type: OpenAPI
+    url: openapi/jsonplaceholder-albums-api-openapi.yml
+  - type: Documentation
+    url: https://jsonplaceholder.typicode.com
+  - type: GettingStarted
+    url: https://jsonplaceholder.typicode.com/guide/
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-post-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-comment-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-album-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-photo-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-todo-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-user-schema.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-post-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-comment-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-album-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-photo-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-todo-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-user-structure.json
+  - type: JSONLD
+    url: json-ld/jsonplaceholder-context.jsonld
+  - type: Examples
+    url: examples/jsonplaceholder-post-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-comment-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-album-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-photo-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-todo-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-user-example.json
+- aid: jsonplaceholder:jsonplaceholder-comments-api
+  name: JSONPlaceholder Comments API
+  description: 500 sample comments belonging to posts
+  humanURL: https://jsonplaceholder.typicode.com
+  baseURL: https://jsonplaceholder.typicode.com
+  tags:
+  - Comments
+  properties:
+  - type: OpenAPI
+    url: openapi/jsonplaceholder-comments-api-openapi.yml
+  - type: Documentation
+    url: https://jsonplaceholder.typicode.com
+  - type: GettingStarted
+    url: https://jsonplaceholder.typicode.com/guide/
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-post-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-comment-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-album-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-photo-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-todo-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-user-schema.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-post-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-comment-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-album-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-photo-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-todo-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-user-structure.json
+  - type: JSONLD
+    url: json-ld/jsonplaceholder-context.jsonld
+  - type: Examples
+    url: examples/jsonplaceholder-post-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-comment-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-album-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-photo-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-todo-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-user-example.json
+- aid: jsonplaceholder:jsonplaceholder-photos-api
+  name: JSONPlaceholder Photos API
+  description: 5000 sample photos belonging to albums
+  humanURL: https://jsonplaceholder.typicode.com
+  baseURL: https://jsonplaceholder.typicode.com
+  tags:
+  - Photos
+  properties:
+  - type: OpenAPI
+    url: openapi/jsonplaceholder-photos-api-openapi.yml
+  - type: Documentation
+    url: https://jsonplaceholder.typicode.com
+  - type: GettingStarted
+    url: https://jsonplaceholder.typicode.com/guide/
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-post-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-comment-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-album-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-photo-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-todo-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-user-schema.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-post-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-comment-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-album-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-photo-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-todo-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-user-structure.json
+  - type: JSONLD
+    url: json-ld/jsonplaceholder-context.jsonld
+  - type: Examples
+    url: examples/jsonplaceholder-post-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-comment-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-album-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-photo-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-todo-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-user-example.json
+- aid: jsonplaceholder:jsonplaceholder-posts-api
+  name: JSONPlaceholder Posts API
+  description: 100 sample blog posts owned by users
+  humanURL: https://jsonplaceholder.typicode.com
+  baseURL: https://jsonplaceholder.typicode.com
+  tags:
+  - Posts
+  properties:
+  - type: OpenAPI
+    url: openapi/jsonplaceholder-posts-api-openapi.yml
+  - type: Documentation
+    url: https://jsonplaceholder.typicode.com
+  - type: GettingStarted
+    url: https://jsonplaceholder.typicode.com/guide/
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-post-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-comment-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-album-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-photo-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-todo-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-user-schema.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-post-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-comment-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-album-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-photo-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-todo-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-user-structure.json
+  - type: JSONLD
+    url: json-ld/jsonplaceholder-context.jsonld
+  - type: Examples
+    url: examples/jsonplaceholder-post-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-comment-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-album-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-photo-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-todo-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-user-example.json
+- aid: jsonplaceholder:jsonplaceholder-todos-api
+  name: JSONPlaceholder Todos API
+  description: 200 sample todo items owned by users
+  humanURL: https://jsonplaceholder.typicode.com
+  baseURL: https://jsonplaceholder.typicode.com
+  tags:
+  - Todos
+  properties:
+  - type: OpenAPI
+    url: openapi/jsonplaceholder-todos-api-openapi.yml
+  - type: Documentation
+    url: https://jsonplaceholder.typicode.com
+  - type: GettingStarted
+    url: https://jsonplaceholder.typicode.com/guide/
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-post-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-comment-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-album-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-photo-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-todo-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-user-schema.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-post-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-comment-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-album-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-photo-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-todo-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-user-structure.json
+  - type: JSONLD
+    url: json-ld/jsonplaceholder-context.jsonld
+  - type: Examples
+    url: examples/jsonplaceholder-post-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-comment-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-album-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-photo-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-todo-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-user-example.json
+- aid: jsonplaceholder:jsonplaceholder-users-api
+  name: JSONPlaceholder Users API
+  description: 10 sample users with profile, address, and company metadata
+  humanURL: https://jsonplaceholder.typicode.com
+  baseURL: https://jsonplaceholder.typicode.com
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/jsonplaceholder-users-api-openapi.yml
+  - type: Documentation
+    url: https://jsonplaceholder.typicode.com
+  - type: GettingStarted
+    url: https://jsonplaceholder.typicode.com/guide/
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-post-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-comment-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-album-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-photo-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-todo-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-user-schema.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-post-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-comment-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-album-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-photo-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-todo-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-user-structure.json
+  - type: JSONLD
+    url: json-ld/jsonplaceholder-context.jsonld
+  - type: Examples
+    url: examples/jsonplaceholder-post-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-comment-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-album-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-photo-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-todo-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-user-example.json
 common:
   - type: AgenticAccess
     url: agentic-access/jsonplaceholder-agentic-access.yml
