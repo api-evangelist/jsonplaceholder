@@ -1,0 +1,24 @@
+{
+  "provider": "jsonplaceholder",
+  "sources": [
+    "jsonplaceholder-albums-api-openapi.yml",
+    "jsonplaceholder-comments-api-openapi.yml",
+    "jsonplaceholder-photos-api-openapi.yml",
+    "jsonplaceholder-posts-api-openapi.yml",
+    "jsonplaceholder-todos-api-openapi.yml",
+    "jsonplaceholder-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "jsonplaceholder-albums-api-openapi.yml",
+    "jsonplaceholder-comments-api-openapi.yml",
+    "jsonplaceholder-photos-api-openapi.yml",
+    "jsonplaceholder-posts-api-openapi.yml",
+    "jsonplaceholder-todos-api-openapi.yml",
+    "jsonplaceholder-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
