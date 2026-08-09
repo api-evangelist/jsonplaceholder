@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jsonplaceholder.typicode.com/schemas/post",
+  "title": "Post",
+  "description": "A post resource in the JSONPlaceholder fake REST API.",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "integer",
+      "description": "The ID of the user who created the post."
+    },
+    "id": {
+      "type": "integer",
+      "description": "The unique identifier of the post."
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the post."
+    },
+    "body": {
+      "type": "string",
+      "description": "The body content of the post."
+    }
+  }
+}

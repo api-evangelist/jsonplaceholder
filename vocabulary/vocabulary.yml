@@ -1,0 +1,13 @@
+vocabulary:
+  - term: post
+    definition: A content item with a title and body, associated with a user via userId. JSONPlaceholder provides 100 pre-seeded posts.
+  - term: userId
+    definition: An integer identifier linking a post to a user resource. Values 1–10 correspond to the seeded user set.
+  - term: list-posts
+    definition: The GET /posts operation that returns all posts, optionally filtered by userId or title query parameters.
+  - term: fake REST API
+    definition: An API that simulates real REST behavior (CRUD operations, proper HTTP status codes) without persisting data. Write operations return expected responses but changes are not stored.
+  - term: JSONP
+    definition: A technique supported by JSONPlaceholder for cross-origin data fetching in legacy environments via a callback query parameter.
+  - term: CORS
+    definition: Cross-Origin Resource Sharing — JSONPlaceholder enables CORS on all endpoints, allowing browser-based clients from any origin to make requests directly.

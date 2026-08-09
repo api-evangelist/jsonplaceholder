@@ -1,0 +1,23 @@
+{
+  "@context": {
+    "@vocab": "https://jsonplaceholder.typicode.com/vocab#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Post": "schema:Article",
+    "userId": {
+      "@id": "schema:author",
+      "@type": "@id"
+    },
+    "id": {
+      "@id": "@id"
+    },
+    "title": {
+      "@id": "schema:headline",
+      "@type": "xsd:string"
+    },
+    "body": {
+      "@id": "schema:articleBody",
+      "@type": "xsd:string"
+    }
+  }
+}

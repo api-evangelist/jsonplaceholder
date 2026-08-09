@@ -1,0 +1,30 @@
+name: JSONPlaceholder FinOps
+description: JSONPlaceholder has zero direct cost to API consumers. There are no billing events, usage charges, overage fees, or subscription costs. Financial operations considerations are limited to developer time and any infrastructure costs associated with building against the API.
+cost:
+  direct: 0
+  currency: USD
+  model: free-forever
+  billingEvents: none
+  overageFees: none
+  contractRequired: false
+  creditCardRequired: false
+budgeting:
+  apiCallCost: 0
+  monthlyEstimate: 0
+  annualEstimate: 0
+  notes: >
+    No financial planning is required to use JSONPlaceholder. The only cost consideration is developer time. If a team needs persistent data, custom schemas, or SLA guarantees for their mock API, they should budget for a paid mock API service or the infrastructure to self-host json-server.
+alternatives:
+  - name: Mockend
+    url: https://mockend.com
+    description: Paid service by the JSONPlaceholder creator for persistent, GitHub-backed fake APIs
+    model: paid
+  - name: json-server (self-hosted)
+    url: https://github.com/typicode/json-server
+    description: Open-source, run locally or on your own infrastructure at no API cost
+    model: open-source-self-hosted
+sustainability:
+  model: open-source-community
+  sponsorship: https://github.com/sponsors/typicode
+  notes: >
+    JSONPlaceholder is maintained by typicode as an open-source community resource. Organizations that rely on it for developer training and testing are encouraged to sponsor the project via GitHub Sponsors to support its continued availability.
