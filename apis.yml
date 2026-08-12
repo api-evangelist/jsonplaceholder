@@ -349,6 +349,11 @@ apis:
   - type: Examples
     url: examples/jsonplaceholder-user-example.json
 common:
+- type: IssueTracker
+  url: https://github.com/typicode/jsonplaceholder/issues
+- type: License
+  name: MIT
+  url: https://github.com/typicode/jsonplaceholder/blob/master/LICENSE
 - type: AgenticAccess
   url: agentic-access/jsonplaceholder-agentic-access.yml
 - type: DomainSecurity
