@@ -1,0 +1,185 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "JSONPlaceholder REST Albums Users API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JSONPlaceholder List Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/users"
+          },
+          "docs": "Returns all 10 sample users with profile, address, and company metadata."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Create User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://jsonplaceholder.typicode.com/users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new user (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Get User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "User identifier (1-10)."
+              }
+            ]
+          },
+          "docs": "Returns a single user by id."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Replace User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://jsonplaceholder.typicode.com/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "User identifier (1-10)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces a user in full (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Update User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://jsonplaceholder.typicode.com/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "User identifier (1-10)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially updates a user (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Delete User",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://jsonplaceholder.typicode.com/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "User identifier (1-10)."
+              }
+            ]
+          },
+          "docs": "Deletes a user (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder List User Posts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/users/:id/posts",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "User identifier."
+              }
+            ]
+          },
+          "docs": "Returns all posts authored by a single user."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder List User Albums",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/users/:id/albums",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "User identifier."
+              }
+            ]
+          },
+          "docs": "Returns all albums owned by a single user."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder List User Todos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/users/:id/todos",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "User identifier."
+              }
+            ]
+          },
+          "docs": "Returns all todos owned by a single user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

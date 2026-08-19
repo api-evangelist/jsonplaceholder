@@ -1,0 +1,689 @@
+{
+  "item": [
+    {
+      "id": "a74fcd5f-1fb9-44a0-860b-1bd440ae5ec3",
+      "name": "Photos",
+      "description": {
+        "content": "5000 sample photos belonging to albums",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4bd38cdb-85eb-4a04-93ce-57771a77ae73",
+          "name": "JSONPlaceholder List Album Photos",
+          "request": {
+            "name": "JSONPlaceholder List Album Photos",
+            "description": {
+              "content": "Returns all photos belonging to a single album.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "albums",
+                ":id",
+                "photos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Album identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e49c126e-23b7-4c43-8f77-3b4e6a335833",
+              "name": "Array of photos for the album.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "albums",
+                    ":id",
+                    "photos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Album identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"albumId\": 1,\n    \"title\": \"accusamus beatae ad facilis cum similique qui sunt\",\n    \"url\": \"https://via.placeholder.com/600/92c952\",\n    \"thumbnailUrl\": \"https://via.placeholder.com/150/92c952\"\n  },\n  {\n    \"id\": 1,\n    \"albumId\": 1,\n    \"title\": \"accusamus beatae ad facilis cum similique qui sunt\",\n    \"url\": \"https://via.placeholder.com/600/92c952\",\n    \"thumbnailUrl\": \"https://via.placeholder.com/150/92c952\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff5953e6-f4e8-4f6f-93a5-f23705ae863e",
+          "name": "JSONPlaceholder List Photos",
+          "request": {
+            "name": "JSONPlaceholder List Photos",
+            "description": {
+              "content": "Returns all 5000 sample photos. Supports filtering by any field via query parameters (e.g. `?albumId=1`).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "photos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "albumId",
+                  "value": "<integer>",
+                  "description": "Filter photos by owning album id."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6cb0a1c8-f009-4a36-8e48-f90dcaacc9b6",
+              "name": "Array of photos.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "photos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "albumId",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"albumId\": 1,\n    \"title\": \"accusamus beatae ad facilis cum similique qui sunt\",\n    \"url\": \"https://via.placeholder.com/600/92c952\",\n    \"thumbnailUrl\": \"https://via.placeholder.com/150/92c952\"\n  },\n  {\n    \"id\": 1,\n    \"albumId\": 1,\n    \"title\": \"accusamus beatae ad facilis cum similique qui sunt\",\n    \"url\": \"https://via.placeholder.com/600/92c952\",\n    \"thumbnailUrl\": \"https://via.placeholder.com/150/92c952\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04a42d33-0eb6-486f-a85a-6304a2630df3",
+          "name": "JSONPlaceholder Create Photo",
+          "request": {
+            "name": "JSONPlaceholder Create Photo",
+            "description": {
+              "content": "Creates a new photo (simulated).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "photos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"albumId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"url\": \"<uri>\",\n  \"thumbnailUrl\": \"<uri>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "24722eef-ce7d-44be-8a5c-048b76d5ea0e",
+              "name": "Created photo (simulated).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "photos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"albumId\": 1,\n  \"title\": \"A new photo\",\n  \"url\": \"https://via.placeholder.com/600/abcdef\",\n  \"thumbnailUrl\": \"https://via.placeholder.com/150/abcdef\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"albumId\": 1,\n  \"title\": \"accusamus beatae ad facilis cum similique qui sunt\",\n  \"url\": \"https://via.placeholder.com/600/92c952\",\n  \"thumbnailUrl\": \"https://via.placeholder.com/150/92c952\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f759668-3cbf-4fad-aab4-03629d04f002",
+          "name": "JSONPlaceholder Get Photo",
+          "request": {
+            "name": "JSONPlaceholder Get Photo",
+            "description": {
+              "content": "Returns a single photo by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "photos",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Photo identifier (1-5000)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "daed8e17-00c1-4462-9b8f-8c0602bef9c5",
+              "name": "A single photo.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "photos",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Photo identifier (1-5000)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"albumId\": 1,\n  \"title\": \"accusamus beatae ad facilis cum similique qui sunt\",\n  \"url\": \"https://via.placeholder.com/600/92c952\",\n  \"thumbnailUrl\": \"https://via.placeholder.com/150/92c952\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e707c56c-b9aa-4c5e-9985-c130e1c7882c",
+          "name": "JSONPlaceholder Replace Photo",
+          "request": {
+            "name": "JSONPlaceholder Replace Photo",
+            "description": {
+              "content": "Replaces a photo in full (simulated).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "photos",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Photo identifier (1-5000)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"albumId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"url\": \"<uri>\",\n  \"thumbnailUrl\": \"<uri>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d9c9103c-1a2c-4e39-aba5-a3be8830bd16",
+              "name": "Updated photo (simulated).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "photos",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Photo identifier (1-5000)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 1,\n  \"albumId\": 1,\n  \"title\": \"accusamus beatae ad facilis cum similique qui sunt\",\n  \"url\": \"https://via.placeholder.com/600/92c952\",\n  \"thumbnailUrl\": \"https://via.placeholder.com/150/92c952\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"albumId\": 1,\n  \"title\": \"accusamus beatae ad facilis cum similique qui sunt\",\n  \"url\": \"https://via.placeholder.com/600/92c952\",\n  \"thumbnailUrl\": \"https://via.placeholder.com/150/92c952\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a79a2a1-756b-4471-92bf-3056229056d8",
+          "name": "JSONPlaceholder Update Photo",
+          "request": {
+            "name": "JSONPlaceholder Update Photo",
+            "description": {
+              "content": "Partially updates a photo (simulated).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "photos",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Photo identifier (1-5000)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"albumId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"url\": \"<uri>\",\n  \"thumbnailUrl\": \"<uri>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "82843456-97f4-413d-bf3f-65f46ba74be8",
+              "name": "Updated photo (simulated).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "photos",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Photo identifier (1-5000)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"albumId\": 1,\n  \"title\": \"A new photo\",\n  \"url\": \"https://via.placeholder.com/600/abcdef\",\n  \"thumbnailUrl\": \"https://via.placeholder.com/150/abcdef\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"albumId\": 1,\n  \"title\": \"accusamus beatae ad facilis cum similique qui sunt\",\n  \"url\": \"https://via.placeholder.com/600/92c952\",\n  \"thumbnailUrl\": \"https://via.placeholder.com/150/92c952\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f3fe056-efd5-41ce-9557-6ac9c55bc19f",
+          "name": "JSONPlaceholder Delete Photo",
+          "request": {
+            "name": "JSONPlaceholder Delete Photo",
+            "description": {
+              "content": "Deletes a photo (simulated).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "photos",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Photo identifier (1-5000)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bc0f21de-64f4-45e0-9338-370a5d0b9e3c",
+              "name": "Deletion accepted (simulated).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "photos",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Photo identifier (1-5000)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://jsonplaceholder.typicode.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c9e71513-cff9-4031-9a7a-cef566d31170",
+    "name": "JSONPlaceholder REST Albums Photos API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "JSONPlaceholder is a free, no-auth fake REST API for prototyping, testing, and teaching. It exposes six relational resources — posts, comments, albums, photos, todos, and users — over standard REST routes (GET, POST, PUT, PATCH, DELETE). Write operations are simulated: the service responds as though the change succeeded, but no data is persisted on the server. The service is powered by the open-source json-server engine, also by typicode.\n\nContact Support:\n Name: typicode",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "JSONPlaceholder REST Albums Comments API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Comments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JSONPlaceholder List Post Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/posts/:id/comments",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Post identifier."
+              }
+            ]
+          },
+          "docs": "Returns all comments belonging to a single post."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder List Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/comments",
+            "params": [
+              {
+                "name": "postId",
+                "value": "1",
+                "type": "query",
+                "description": "Filter comments by post id."
+              }
+            ]
+          },
+          "docs": "Returns all 500 sample comments. Supports filtering by any field via query parameters (e.g. `?postId=1`)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Create Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://jsonplaceholder.typicode.com/comments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new comment. Returns the created comment with a generated id but no data is persisted."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Get Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/comments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Comment identifier (1-500)."
+              }
+            ]
+          },
+          "docs": "Returns a single comment by id."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Replace Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://jsonplaceholder.typicode.com/comments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Comment identifier (1-500)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces a comment in full (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Update Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://jsonplaceholder.typicode.com/comments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Comment identifier (1-500)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially updates a comment (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Delete Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://jsonplaceholder.typicode.com/comments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Comment identifier (1-500)."
+              }
+            ]
+          },
+          "docs": "Deletes a comment (simulated)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

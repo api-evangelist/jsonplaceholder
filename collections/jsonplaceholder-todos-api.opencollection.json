@@ -1,0 +1,161 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "JSONPlaceholder REST Albums Todos API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Todos",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JSONPlaceholder List Todos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/todos",
+            "params": [
+              {
+                "name": "userId",
+                "value": "1",
+                "type": "query",
+                "description": "Filter todos by owning user id."
+              },
+              {
+                "name": "completed",
+                "value": "false",
+                "type": "query",
+                "description": "Filter todos by completion state."
+              }
+            ]
+          },
+          "docs": "Returns all 200 sample todos. Supports filtering by any field via query parameters (e.g. `?userId=1&completed=true`)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Create Todo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://jsonplaceholder.typicode.com/todos",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new todo (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Get Todo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/todos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Todo identifier (1-200)."
+              }
+            ]
+          },
+          "docs": "Returns a single todo by id."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Replace Todo",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://jsonplaceholder.typicode.com/todos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Todo identifier (1-200)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces a todo in full (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Update Todo",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://jsonplaceholder.typicode.com/todos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Todo identifier (1-200)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially updates a todo (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Delete Todo",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://jsonplaceholder.typicode.com/todos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Todo identifier (1-200)."
+              }
+            ]
+          },
+          "docs": "Deletes a todo (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder List User Todos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/users/:id/todos",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "User identifier."
+              }
+            ]
+          },
+          "docs": "Returns all todos owned by a single user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,689 @@
+{
+  "item": [
+    {
+      "id": "e3d31295-2a6d-4185-861b-9a412cbb0a68",
+      "name": "Comments",
+      "description": {
+        "content": "500 sample comments belonging to posts",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "750ddc6a-dc80-4e70-a05e-3ae0cf79f9c3",
+          "name": "JSONPlaceholder List Post Comments",
+          "request": {
+            "name": "JSONPlaceholder List Post Comments",
+            "description": {
+              "content": "Returns all comments belonging to a single post.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "posts",
+                ":id",
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Post identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f84f6ce-6218-41c0-9752-5eb7a12b12c1",
+              "name": "Array of comments for the post.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "posts",
+                    ":id",
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Post identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"postId\": 1,\n    \"name\": \"id labore ex et quam laborum\",\n    \"email\": \"Eliseo@gardner.biz\",\n    \"body\": \"laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus\"\n  },\n  {\n    \"id\": 1,\n    \"postId\": 1,\n    \"name\": \"id labore ex et quam laborum\",\n    \"email\": \"Eliseo@gardner.biz\",\n    \"body\": \"laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bcc3f003-6df5-49a3-8573-220ce715d0fe",
+          "name": "JSONPlaceholder List Comments",
+          "request": {
+            "name": "JSONPlaceholder List Comments",
+            "description": {
+              "content": "Returns all 500 sample comments. Supports filtering by any field via query parameters (e.g. `?postId=1`).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "postId",
+                  "value": "<integer>",
+                  "description": "Filter comments by post id."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a79005ce-5feb-4424-b2e0-8758d7a268af",
+              "name": "Array of comments.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "postId",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"postId\": 1,\n    \"name\": \"id labore ex et quam laborum\",\n    \"email\": \"Eliseo@gardner.biz\",\n    \"body\": \"laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus\"\n  },\n  {\n    \"id\": 1,\n    \"postId\": 1,\n    \"name\": \"id labore ex et quam laborum\",\n    \"email\": \"Eliseo@gardner.biz\",\n    \"body\": \"laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dce3013b-19ce-4739-afd1-50dac4b4638c",
+          "name": "JSONPlaceholder Create Comment",
+          "request": {
+            "name": "JSONPlaceholder Create Comment",
+            "description": {
+              "content": "Creates a new comment. Returns the created comment with a generated id but no data is persisted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"postId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"body\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4c9c2065-b437-40b8-930b-4d7b430e481c",
+              "name": "Created comment (simulated).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"postId\": 1,\n  \"name\": \"Great post\",\n  \"email\": \"reader@example.com\",\n  \"body\": \"Thanks for writing this.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"postId\": 1,\n  \"name\": \"id labore ex et quam laborum\",\n  \"email\": \"Eliseo@gardner.biz\",\n  \"body\": \"laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2c6276d-5e7b-4a54-b831-437c80361539",
+          "name": "JSONPlaceholder Get Comment",
+          "request": {
+            "name": "JSONPlaceholder Get Comment",
+            "description": {
+              "content": "Returns a single comment by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "comments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Comment identifier (1-500)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cdfabf7d-7014-4c92-8af8-cb31a7ad5c3e",
+              "name": "A single comment.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Comment identifier (1-500)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"postId\": 1,\n  \"name\": \"id labore ex et quam laborum\",\n  \"email\": \"Eliseo@gardner.biz\",\n  \"body\": \"laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c814f83-41e0-46cc-b72b-ffb4c697cc91",
+          "name": "JSONPlaceholder Replace Comment",
+          "request": {
+            "name": "JSONPlaceholder Replace Comment",
+            "description": {
+              "content": "Replaces a comment in full (simulated).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "comments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Comment identifier (1-500)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"postId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"body\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9871b6dd-ce18-496d-a371-9344f5ee6cf0",
+              "name": "Updated comment (simulated).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Comment identifier (1-500)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 1,\n  \"postId\": 1,\n  \"name\": \"id labore ex et quam laborum\",\n  \"email\": \"Eliseo@gardner.biz\",\n  \"body\": \"laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"postId\": 1,\n  \"name\": \"id labore ex et quam laborum\",\n  \"email\": \"Eliseo@gardner.biz\",\n  \"body\": \"laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dddf4ca5-21cf-4dda-ab20-2135fbfd587d",
+          "name": "JSONPlaceholder Update Comment",
+          "request": {
+            "name": "JSONPlaceholder Update Comment",
+            "description": {
+              "content": "Partially updates a comment (simulated).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "comments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Comment identifier (1-500)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"postId\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"body\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8e2e1fb0-f8cb-4cd9-97ae-859d4ea96bc0",
+              "name": "Updated comment (simulated).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Comment identifier (1-500)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"postId\": 1,\n  \"name\": \"Great post\",\n  \"email\": \"reader@example.com\",\n  \"body\": \"Thanks for writing this.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"postId\": 1,\n  \"name\": \"id labore ex et quam laborum\",\n  \"email\": \"Eliseo@gardner.biz\",\n  \"body\": \"laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f88b95d-d4f1-4c58-8af0-9f89ee0e978a",
+          "name": "JSONPlaceholder Delete Comment",
+          "request": {
+            "name": "JSONPlaceholder Delete Comment",
+            "description": {
+              "content": "Deletes a comment (simulated).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "comments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Comment identifier (1-500)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "273930f9-8665-4a0e-90a6-b53479e7ade5",
+              "name": "Deletion accepted (simulated).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Comment identifier (1-500)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://jsonplaceholder.typicode.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4a4edfe6-0cfd-4dfe-9a1e-632a7e73c628",
+    "name": "JSONPlaceholder REST Albums Comments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "JSONPlaceholder is a free, no-auth fake REST API for prototyping, testing, and teaching. It exposes six relational resources — posts, comments, albums, photos, todos, and users — over standard REST routes (GET, POST, PUT, PATCH, DELETE). Write operations are simulated: the service responds as though the change succeeded, but no data is persisted on the server. The service is powered by the open-source json-server engine, also by typicode.\n\nContact Support:\n Name: typicode",
+      "type": "text/plain"
+    }
+  }
+}

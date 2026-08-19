@@ -1,0 +1,174 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "JSONPlaceholder REST Albums API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Albums",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JSONPlaceholder List Albums",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/albums",
+            "params": [
+              {
+                "name": "userId",
+                "value": "1",
+                "type": "query",
+                "description": "Filter albums by owning user id."
+              }
+            ]
+          },
+          "docs": "Returns all 100 sample albums. Supports filtering by any field via query parameters (e.g. `?userId=1`)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Create Album",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://jsonplaceholder.typicode.com/albums",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new album (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Get Album",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/albums/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Album identifier (1-100)."
+              }
+            ]
+          },
+          "docs": "Returns a single album by id."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Replace Album",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://jsonplaceholder.typicode.com/albums/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Album identifier (1-100)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces an album in full (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Update Album",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://jsonplaceholder.typicode.com/albums/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Album identifier (1-100)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially updates an album (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Delete Album",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://jsonplaceholder.typicode.com/albums/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Album identifier (1-100)."
+              }
+            ]
+          },
+          "docs": "Deletes an album (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder List Album Photos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/albums/:id/photos",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Album identifier."
+              }
+            ]
+          },
+          "docs": "Returns all photos belonging to a single album."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder List User Albums",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/users/:id/albums",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "User identifier."
+              }
+            ]
+          },
+          "docs": "Returns all albums owned by a single user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

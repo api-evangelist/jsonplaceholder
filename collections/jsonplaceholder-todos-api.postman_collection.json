@@ -1,0 +1,699 @@
+{
+  "item": [
+    {
+      "id": "d8a102e5-1b2f-479d-a4f7-3d78457b3483",
+      "name": "Todos",
+      "description": {
+        "content": "200 sample todo items owned by users",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7fc5bc98-f16b-4322-a409-c66edf51d423",
+          "name": "JSONPlaceholder List Todos",
+          "request": {
+            "name": "JSONPlaceholder List Todos",
+            "description": {
+              "content": "Returns all 200 sample todos. Supports filtering by any field via query parameters (e.g. `?userId=1&completed=true`).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "todos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<integer>",
+                  "description": "Filter todos by owning user id."
+                },
+                {
+                  "disabled": false,
+                  "key": "completed",
+                  "value": "<boolean>",
+                  "description": "Filter todos by completion state."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d6d43981-45f8-449e-803d-619758071cdb",
+              "name": "Array of todos.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "todos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "1"
+                    },
+                    {
+                      "key": "completed",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"userId\": 1,\n    \"title\": \"delectus aut autem\",\n    \"completed\": false\n  },\n  {\n    \"id\": 1,\n    \"userId\": 1,\n    \"title\": \"delectus aut autem\",\n    \"completed\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb3f51fd-69bc-4e6b-bf32-bd5200a92237",
+          "name": "JSONPlaceholder Create Todo",
+          "request": {
+            "name": "JSONPlaceholder Create Todo",
+            "description": {
+              "content": "Creates a new todo (simulated).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "todos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"completed\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b308ff55-5549-4ee4-80c5-0c3e32518ad0",
+              "name": "Created todo (simulated).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "todos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": 1,\n  \"title\": \"Write integration tests\",\n  \"completed\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"userId\": 1,\n  \"title\": \"delectus aut autem\",\n  \"completed\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94615382-dc97-4a68-a7de-494658500282",
+          "name": "JSONPlaceholder Get Todo",
+          "request": {
+            "name": "JSONPlaceholder Get Todo",
+            "description": {
+              "content": "Returns a single todo by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "todos",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Todo identifier (1-200)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "83c715f7-b251-4098-a999-e99ec66968e6",
+              "name": "A single todo.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "todos",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Todo identifier (1-200)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"userId\": 1,\n  \"title\": \"delectus aut autem\",\n  \"completed\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61d7cdc4-f020-4f75-8275-ef29e3c2f8ea",
+          "name": "JSONPlaceholder Replace Todo",
+          "request": {
+            "name": "JSONPlaceholder Replace Todo",
+            "description": {
+              "content": "Replaces a todo in full (simulated).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "todos",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Todo identifier (1-200)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"completed\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "777771ac-2645-4ee6-983a-9c274c5c73d4",
+              "name": "Updated todo (simulated).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "todos",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Todo identifier (1-200)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 1,\n  \"userId\": 1,\n  \"title\": \"delectus aut autem\",\n  \"completed\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"userId\": 1,\n  \"title\": \"delectus aut autem\",\n  \"completed\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25a70656-a205-4976-a42a-f99b33cf528c",
+          "name": "JSONPlaceholder Update Todo",
+          "request": {
+            "name": "JSONPlaceholder Update Todo",
+            "description": {
+              "content": "Partially updates a todo (simulated).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "todos",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Todo identifier (1-200)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"completed\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1d6149b4-a47d-4a8d-a147-f42bf1cd4918",
+              "name": "Updated todo (simulated).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "todos",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Todo identifier (1-200)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": 1,\n  \"title\": \"Write integration tests\",\n  \"completed\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"userId\": 1,\n  \"title\": \"delectus aut autem\",\n  \"completed\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96b8037d-656e-4a42-9067-fd0012b9d2d4",
+          "name": "JSONPlaceholder Delete Todo",
+          "request": {
+            "name": "JSONPlaceholder Delete Todo",
+            "description": {
+              "content": "Deletes a todo (simulated).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "todos",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Todo identifier (1-200)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "96071c0c-1947-4268-b9b4-dbb0c6b90a76",
+              "name": "Deletion accepted (simulated).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "todos",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Todo identifier (1-200)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0464769b-8254-4fbe-b323-d9aeee64b129",
+          "name": "JSONPlaceholder List User Todos",
+          "request": {
+            "name": "JSONPlaceholder List User Todos",
+            "description": {
+              "content": "Returns all todos owned by a single user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":id",
+                "todos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) User identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "33abedf3-ae6f-4abe-bba1-76272d4e42ac",
+              "name": "Array of todos for the user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id",
+                    "todos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) User identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"userId\": 1,\n    \"title\": \"delectus aut autem\",\n    \"completed\": false\n  },\n  {\n    \"id\": 1,\n    \"userId\": 1,\n    \"title\": \"delectus aut autem\",\n    \"completed\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://jsonplaceholder.typicode.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6acbe63c-0e64-478f-80b1-095246b50a69",
+    "name": "JSONPlaceholder REST Albums Todos API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "JSONPlaceholder is a free, no-auth fake REST API for prototyping, testing, and teaching. It exposes six relational resources — posts, comments, albums, photos, todos, and users — over standard REST routes (GET, POST, PUT, PATCH, DELETE). Write operations are simulated: the service responds as though the change succeeded, but no data is persisted on the server. The service is powered by the open-source json-server engine, also by typicode.\n\nContact Support:\n Name: typicode",
+      "type": "text/plain"
+    }
+  }
+}

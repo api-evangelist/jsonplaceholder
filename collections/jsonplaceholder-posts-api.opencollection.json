@@ -1,0 +1,180 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "JSONPlaceholder REST Albums Posts API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Posts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JSONPlaceholder List Posts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/posts",
+            "params": [
+              {
+                "name": "userId",
+                "value": "1",
+                "type": "query",
+                "description": "Filter posts by owning user id."
+              },
+              {
+                "name": "id",
+                "value": "1",
+                "type": "query",
+                "description": "Filter posts by post id."
+              }
+            ]
+          },
+          "docs": "Returns all 100 sample posts. Supports filtering by any field via query parameters (e.g. `?userId=1`)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Create Post",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://jsonplaceholder.typicode.com/posts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new post. Returns the created post with a generated id, but no data is actually persisted on the server."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Get Post",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/posts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Post identifier (1-100)."
+              }
+            ]
+          },
+          "docs": "Returns a single post by id."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Replace Post",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://jsonplaceholder.typicode.com/posts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Post identifier (1-100)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces a post in full. Returns the updated post but no data is actually persisted on the server."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Update Post",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://jsonplaceholder.typicode.com/posts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Post identifier (1-100)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially updates a post. Returns the merged post but no data is actually persisted on the server."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Delete Post",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://jsonplaceholder.typicode.com/posts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Post identifier (1-100)."
+              }
+            ]
+          },
+          "docs": "Deletes a post. Returns an empty object but no data is actually deleted on the server."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder List Post Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/posts/:id/comments",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Post identifier."
+              }
+            ]
+          },
+          "docs": "Returns all comments belonging to a single post."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder List User Posts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/users/:id/posts",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "User identifier."
+              }
+            ]
+          },
+          "docs": "Returns all posts authored by a single user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

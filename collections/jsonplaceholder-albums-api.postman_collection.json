@@ -1,0 +1,779 @@
+{
+  "item": [
+    {
+      "id": "97239214-f71b-4c9a-b0a5-68c9ff3643ce",
+      "name": "Albums",
+      "description": {
+        "content": "100 sample photo albums owned by users",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e815951f-6a18-47e3-b5fb-6fcabb6fe441",
+          "name": "JSONPlaceholder List Albums",
+          "request": {
+            "name": "JSONPlaceholder List Albums",
+            "description": {
+              "content": "Returns all 100 sample albums. Supports filtering by any field via query parameters (e.g. `?userId=1`).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "albums"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<integer>",
+                  "description": "Filter albums by owning user id."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f01a6cb6-3db5-4096-8904-1ad77c42b8a9",
+              "name": "Array of albums.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "albums"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"userId\": 1,\n    \"title\": \"quidem molestiae enim\"\n  },\n  {\n    \"id\": 1,\n    \"userId\": 1,\n    \"title\": \"quidem molestiae enim\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bbed62a9-2474-4496-a29b-362b8bc909f1",
+          "name": "JSONPlaceholder Create Album",
+          "request": {
+            "name": "JSONPlaceholder Create Album",
+            "description": {
+              "content": "Creates a new album (simulated).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "albums"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<integer>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "792d7a6d-6a6d-40df-a6a2-6f2458c56e48",
+              "name": "Created album (simulated).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "albums"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": 1,\n  \"title\": \"Holiday Album\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"userId\": 1,\n  \"title\": \"quidem molestiae enim\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "06562170-bc7f-4c42-a047-62d6fa8160ea",
+          "name": "JSONPlaceholder Get Album",
+          "request": {
+            "name": "JSONPlaceholder Get Album",
+            "description": {
+              "content": "Returns a single album by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "albums",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Album identifier (1-100)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de72d5bb-9221-4ac8-9112-a420db18b5ea",
+              "name": "A single album.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "albums",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Album identifier (1-100)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"userId\": 1,\n  \"title\": \"quidem molestiae enim\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff01b447-e2c3-4388-adb9-0848e54143a6",
+          "name": "JSONPlaceholder Replace Album",
+          "request": {
+            "name": "JSONPlaceholder Replace Album",
+            "description": {
+              "content": "Replaces an album in full (simulated).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "albums",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Album identifier (1-100)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"userId\": \"<integer>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "437ad36d-b74e-4fc0-96ff-2dc106a930cf",
+              "name": "Updated album (simulated).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "albums",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Album identifier (1-100)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 1,\n  \"userId\": 1,\n  \"title\": \"quidem molestiae enim\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"userId\": 1,\n  \"title\": \"quidem molestiae enim\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6bc3e85a-07a2-408c-a57f-51a1f13b8641",
+          "name": "JSONPlaceholder Update Album",
+          "request": {
+            "name": "JSONPlaceholder Update Album",
+            "description": {
+              "content": "Partially updates an album (simulated).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "albums",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Album identifier (1-100)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<integer>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "66487479-3c97-49bb-bbf4-b751f681f0de",
+              "name": "Updated album (simulated).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "albums",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Album identifier (1-100)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": 1,\n  \"title\": \"Holiday Album\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"userId\": 1,\n  \"title\": \"quidem molestiae enim\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4909b0c0-2931-4751-a393-037e7b8c533d",
+          "name": "JSONPlaceholder Delete Album",
+          "request": {
+            "name": "JSONPlaceholder Delete Album",
+            "description": {
+              "content": "Deletes an album (simulated).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "albums",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Album identifier (1-100)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9195222a-f70e-4686-8671-5ce67c8bbd7e",
+              "name": "Deletion accepted (simulated).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "albums",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Album identifier (1-100)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "275f741f-fe59-49a8-a647-cfec94277fb6",
+          "name": "JSONPlaceholder List Album Photos",
+          "request": {
+            "name": "JSONPlaceholder List Album Photos",
+            "description": {
+              "content": "Returns all photos belonging to a single album.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "albums",
+                ":id",
+                "photos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Album identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0c679ed9-c1fb-4506-b822-d9726a95fad0",
+              "name": "Array of photos for the album.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "albums",
+                    ":id",
+                    "photos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Album identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"albumId\": 1,\n    \"title\": \"accusamus beatae ad facilis cum similique qui sunt\",\n    \"url\": \"https://via.placeholder.com/600/92c952\",\n    \"thumbnailUrl\": \"https://via.placeholder.com/150/92c952\"\n  },\n  {\n    \"id\": 1,\n    \"albumId\": 1,\n    \"title\": \"accusamus beatae ad facilis cum similique qui sunt\",\n    \"url\": \"https://via.placeholder.com/600/92c952\",\n    \"thumbnailUrl\": \"https://via.placeholder.com/150/92c952\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2dd92e40-2267-44e4-b1fa-a8a0627a843b",
+          "name": "JSONPlaceholder List User Albums",
+          "request": {
+            "name": "JSONPlaceholder List User Albums",
+            "description": {
+              "content": "Returns all albums owned by a single user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":id",
+                "albums"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) User identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9a79546-120f-432c-a052-3ac2ac4ab00b",
+              "name": "Array of albums for the user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id",
+                    "albums"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) User identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"userId\": 1,\n    \"title\": \"quidem molestiae enim\"\n  },\n  {\n    \"id\": 1,\n    \"userId\": 1,\n    \"title\": \"quidem molestiae enim\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://jsonplaceholder.typicode.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6faccc90-b6af-497b-af35-dc2a42096084",
+    "name": "JSONPlaceholder REST Albums API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "JSONPlaceholder is a free, no-auth fake REST API for prototyping, testing, and teaching. It exposes six relational resources — posts, comments, albums, photos, todos, and users — over standard REST routes (GET, POST, PUT, PATCH, DELETE). Write operations are simulated: the service responds as though the change succeeded, but no data is persisted on the server. The service is powered by the open-source json-server engine, also by typicode.\n\nContact Support:\n Name: typicode",
+      "type": "text/plain"
+    }
+  }
+}

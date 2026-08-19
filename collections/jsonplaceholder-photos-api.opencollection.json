@@ -1,0 +1,155 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "JSONPlaceholder REST Albums Photos API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Photos",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "JSONPlaceholder List Album Photos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/albums/:id/photos",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Album identifier."
+              }
+            ]
+          },
+          "docs": "Returns all photos belonging to a single album."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder List Photos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/photos",
+            "params": [
+              {
+                "name": "albumId",
+                "value": "1",
+                "type": "query",
+                "description": "Filter photos by owning album id."
+              }
+            ]
+          },
+          "docs": "Returns all 5000 sample photos. Supports filtering by any field via query parameters (e.g. `?albumId=1`)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Create Photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://jsonplaceholder.typicode.com/photos",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new photo (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Get Photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://jsonplaceholder.typicode.com/photos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Photo identifier (1-5000)."
+              }
+            ]
+          },
+          "docs": "Returns a single photo by id."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Replace Photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://jsonplaceholder.typicode.com/photos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Photo identifier (1-5000)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces a photo in full (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Update Photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://jsonplaceholder.typicode.com/photos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Photo identifier (1-5000)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially updates a photo (simulated)."
+        },
+        {
+          "info": {
+            "name": "JSONPlaceholder Delete Photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://jsonplaceholder.typicode.com/photos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "Photo identifier (1-5000)."
+              }
+            ]
+          },
+          "docs": "Deletes a photo (simulated)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
