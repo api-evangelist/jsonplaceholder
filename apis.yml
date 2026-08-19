@@ -20,7 +20,7 @@ description: JSONPlaceholder is a free, no-auth fake REST API for prototyping, t
   (also by typicode) and serves billions of requests per month with no rate limits or authentication.
 url: https://jsonplaceholder.typicode.com
 baseURL: https://jsonplaceholder.typicode.com
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-05-28'
 modified: '2026-08-08'
 x-source: public-apis/public-apis
