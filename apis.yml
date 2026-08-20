@@ -33,6 +33,13 @@ tags:
 - Testing
 - Prototyping
 - Fake API
+- Open-Source
+- REST
+tags_raw:
+- Development
+- Testing
+- Prototyping
+- Fake API
 - Open Source
 - REST
 apis:
@@ -250,6 +257,8 @@ apis:
   humanURL: https://jsonplaceholder.typicode.com
   baseURL: https://jsonplaceholder.typicode.com
   tags:
+  - To-Dos
+  tags_raw:
   - Todos
   properties:
   - type: OpenAPI
@@ -302,6 +311,8 @@ apis:
   humanURL: https://jsonplaceholder.typicode.com
   baseURL: https://jsonplaceholder.typicode.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
