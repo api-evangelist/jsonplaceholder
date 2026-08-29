@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: JSONPlaceholder REST Albums API
   description: 'JSONPlaceholder is a free, no-auth fake REST API for prototyping, testing, and teaching. It exposes six relational resources — posts, comments, albums, photos, todos, and users — over standard REST routes (GET, POST, PUT, PATCH, DELETE). Write operations are simulated: the service responds as though the change succeeded, but no data is persisted on the server. The service is powered by the open-source json-server engine, also by typicode.'
@@ -208,6 +208,18 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    AlbumInput:
+      type: object
+      description: Payload for creating or partially updating an album.
+      properties:
+        userId:
+          type: integer
+          description: Identifier of the user who owns the album.
+          example: 1
+        title:
+          type: string
+          description: Album title.
+          example: Holiday Album
     Photo:
       type: object
       description: A sample photo belonging to an album.
@@ -240,18 +252,6 @@ components:
           format: uri
           description: Thumbnail image URL (placeholder service).
           example: https://via.placeholder.com/150/92c952
-    AlbumInput:
-      type: object
-      description: Payload for creating or partially updating an album.
-      properties:
-        userId:
-          type: integer
-          description: Identifier of the user who owns the album.
-          example: 1
-        title:
-          type: string
-          description: Album title.
-          example: Holiday Album
     Album:
       type: object
       description: A sample photo album owned by a user.

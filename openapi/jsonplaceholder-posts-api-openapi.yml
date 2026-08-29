@@ -1,19 +1,15 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: JSONPlaceholder REST Albums Posts API
-  description: 'JSONPlaceholder is a free, no-auth fake REST API for prototyping, testing, and teaching. It exposes six relational resources — posts, comments, albums, photos, todos, and users — over standard REST routes (GET, POST, PUT, PATCH, DELETE). Write operations are simulated: the service responds as though the change succeeded, but no data is persisted on the server. The service is powered by the open-source json-server engine, also by typicode.'
-  version: 1.0.0
-  contact:
-    name: typicode
-    url: https://github.com/typicode/jsonplaceholder
-  license:
-    name: MIT
-    url: https://github.com/typicode/jsonplaceholder/blob/master/LICENSE
-  x-generated-from: documentation
-  x-last-validated: '2026-05-29'
+  title: Jsonplaceholder Posts API
+  x-refined-note:
+  - x-generated-from differs across the merged source definitions and was not carried
+  - x-last-validated differs across the merged source definitions and was not carried
+  version: '1.0'
+  description: 'Operations tagged Posts across 2 of this provider''s published API definitions: jsonplaceholder-openapi.yml, openapi.yaml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://jsonplaceholder.typicode.com
   description: Public production endpoint (no authentication required)
+- url: https://jsonplaceholder.typicode.com/
 tags:
 - name: Posts
   description: 100 sample blog posts owned by users
@@ -75,6 +71,9 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://jsonplaceholder.typicode.com
+      description: Public production endpoint (no authentication required)
   /posts/{id}:
     parameters:
     - name: id
@@ -164,6 +163,9 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://jsonplaceholder.typicode.com
+      description: Public production endpoint (no authentication required)
   /posts/{id}/comments:
     parameters:
     - name: id
@@ -191,6 +193,9 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://jsonplaceholder.typicode.com
+      description: Public production endpoint (no authentication required)
   /users/{id}/posts:
     parameters:
     - name: id
@@ -218,8 +223,71 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://jsonplaceholder.typicode.com
+      description: Public production endpoint (no authentication required)
+  /posts/{post-id}:
+    get:
+      description: Get post by ID
+      parameters:
+      - $ref: '#/components/parameters/post-id'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/post'
+      tags:
+      - Posts
+    patch:
+      description: Update post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post'
+      parameters:
+      - $ref: '#/components/parameters/post-id'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/post'
+      tags:
+      - Posts
+    delete:
+      description: Delete post
+      parameters:
+      - $ref: '#/components/parameters/post-id'
+      responses:
+        '200':
+          description: OK
+      tags:
+      - Posts
+    servers:
+    - url: https://jsonplaceholder.typicode.com/
 components:
   schemas:
+    PostInput:
+      type: object
+      description: Payload for creating or partially updating a post.
+      properties:
+        userId:
+          type: integer
+          description: Identifier of the user who authored the post.
+          example: 1
+        title:
+          type: string
+          description: Post title.
+          example: My New Post
+        body:
+          type: string
+          description: Post body / content.
+          example: This is the body of my new post.
     Post:
       type: object
       description: A sample blog post owned by a user.
@@ -245,22 +313,6 @@ components:
           type: string
           description: Post body / content.
           example: quia et suscipit suscipit recusandae consequuntur expedita et cum
-    PostInput:
-      type: object
-      description: Payload for creating or partially updating a post.
-      properties:
-        userId:
-          type: integer
-          description: Identifier of the user who authored the post.
-          example: 1
-        title:
-          type: string
-          description: Post title.
-          example: My New Post
-        body:
-          type: string
-          description: Post body / content.
-          example: This is the body of my new post.
     Comment:
       type: object
       description: A sample comment attached to a post.
@@ -292,3 +344,26 @@ components:
           type: string
           description: Comment body text.
           example: laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus
+    post:
+      type: object
+      properties:
+        userId:
+          type: integer
+        id:
+          type: integer
+        title:
+          type: string
+        body:
+          type: string
+  parameters:
+    post-id:
+      name: post-id
+      in: path
+      description: 'key: id of post'
+      required: true
+      style: simple
+      schema:
+        type: integer
+x-refined-from:
+- jsonplaceholder-openapi.yml
+- openapi.yaml

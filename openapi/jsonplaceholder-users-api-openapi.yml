@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: JSONPlaceholder REST Albums Users API
+  title: JSONPlaceholder REST Users API
   description: 'JSONPlaceholder is a free, no-auth fake REST API for prototyping, testing, and teaching. It exposes six relational resources — posts, comments, albums, photos, todos, and users — over standard REST routes (GET, POST, PUT, PATCH, DELETE). Write operations are simulated: the service responds as though the change succeeded, but no data is persisted on the server. The service is powered by the open-source json-server engine, also by typicode.'
   version: 1.0.0
   contact:
@@ -227,31 +227,37 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Todo:
+    Address:
       type: object
-      description: A sample todo item owned by a user.
-      required:
-      - id
-      - userId
-      - title
-      - completed
+      description: Street, city, postal code, and geo coordinates.
       properties:
-        id:
-          type: integer
-          description: Unique todo identifier (1-200).
-          example: 1
-        userId:
-          type: integer
-          description: Identifier of the user who owns the todo.
-          example: 1
-        title:
+        street:
           type: string
-          description: Todo title.
-          example: delectus aut autem
-        completed:
-          type: boolean
-          description: Whether the todo is completed.
-          example: false
+          example: Kulas Light
+        suite:
+          type: string
+          example: Apt. 556
+        city:
+          type: string
+          example: Gwenborough
+        zipcode:
+          type: string
+          example: 92998-3874
+        geo:
+          $ref: '#/components/schemas/Geo'
+    Company:
+      type: object
+      description: User's company affiliation.
+      properties:
+        name:
+          type: string
+          example: Romaguera-Crona
+        catchPhrase:
+          type: string
+          example: Multi-layered client-server neural-net
+        bs:
+          type: string
+          example: harness real-time e-markets
     User:
       type: object
       description: A sample user with profile, address, and company metadata.
@@ -314,24 +320,41 @@ components:
           $ref: '#/components/schemas/Address'
         company:
           $ref: '#/components/schemas/Company'
-    Address:
+    Todo:
       type: object
-      description: Street, city, postal code, and geo coordinates.
+      description: A sample todo item owned by a user.
+      required:
+      - id
+      - userId
+      - title
+      - completed
       properties:
-        street:
+        id:
+          type: integer
+          description: Unique todo identifier (1-200).
+          example: 1
+        userId:
+          type: integer
+          description: Identifier of the user who owns the todo.
+          example: 1
+        title:
           type: string
-          example: Kulas Light
-        suite:
+          description: Todo title.
+          example: delectus aut autem
+        completed:
+          type: boolean
+          description: Whether the todo is completed.
+          example: false
+    Geo:
+      type: object
+      description: Latitude and longitude (strings in the JSONPlaceholder dataset).
+      properties:
+        lat:
           type: string
-          example: Apt. 556
-        city:
+          example: '-37.3159'
+        lng:
           type: string
-          example: Gwenborough
-        zipcode:
-          type: string
-          example: 92998-3874
-        geo:
-          $ref: '#/components/schemas/Geo'
+          example: '81.1496'
     Album:
       type: object
       description: A sample photo album owned by a user.
@@ -352,29 +375,6 @@ components:
           type: string
           description: Album title.
           example: quidem molestiae enim
-    Geo:
-      type: object
-      description: Latitude and longitude (strings in the JSONPlaceholder dataset).
-      properties:
-        lat:
-          type: string
-          example: '-37.3159'
-        lng:
-          type: string
-          example: '81.1496'
-    Company:
-      type: object
-      description: User's company affiliation.
-      properties:
-        name:
-          type: string
-          example: Romaguera-Crona
-        catchPhrase:
-          type: string
-          example: Multi-layered client-server neural-net
-        bs:
-          type: string
-          example: harness real-time e-markets
     Post:
       type: object
       description: A sample blog post owned by a user.

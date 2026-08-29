@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: JSONPlaceholder REST Albums Todos API
+  title: JSONPlaceholder REST Todos API
   description: 'JSONPlaceholder is a free, no-auth fake REST API for prototyping, testing, and teaching. It exposes six relational resources — posts, comments, albums, photos, todos, and users — over standard REST routes (GET, POST, PUT, PATCH, DELETE). Write operations are simulated: the service responds as though the change succeeded, but no data is persisted on the server. The service is powered by the open-source json-server engine, also by typicode.'
   version: 1.0.0
   contact:

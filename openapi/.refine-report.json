@@ -1,12 +1,8 @@
 {
   "provider": "jsonplaceholder",
   "sources": [
-    "jsonplaceholder-albums-api-openapi.yml",
-    "jsonplaceholder-comments-api-openapi.yml",
-    "jsonplaceholder-photos-api-openapi.yml",
-    "jsonplaceholder-posts-api-openapi.yml",
-    "jsonplaceholder-todos-api-openapi.yml",
-    "jsonplaceholder-users-api-openapi.yml"
+    "_original/jsonplaceholder-openapi.yml",
+    "_original/openapi.yaml"
   ],
   "outputs": [
     "jsonplaceholder-albums-api-openapi.yml",
@@ -19,6 +15,24 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "jsonplaceholder-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "openapi.yaml: upgraded openapi 3.0.2 -> OpenAPI 3.2.0",
+    "openapi.yaml: tagged paths GET /posts -> Posts",
+    "openapi.yaml: tagged paths POST /posts -> Posts",
+    "openapi.yaml: tagged paths GET /posts/{post-id} -> Posts",
+    "openapi.yaml: tagged paths PATCH /posts/{post-id} -> Posts",
+    "openapi.yaml: tagged paths DELETE /posts/{post-id} -> Posts",
+    "openapi.yaml: declared missing tag: Posts",
+    "tag 'Posts' spans 2 source specs (jsonplaceholder-openapi.yml, openapi.yaml): per-path servers applied"
+  ],
+  "skipped": [
+    "jsonplaceholder-albums-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "jsonplaceholder-comments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "jsonplaceholder-photos-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "jsonplaceholder-posts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "jsonplaceholder-todos-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "jsonplaceholder-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
