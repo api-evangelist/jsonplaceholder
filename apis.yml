@@ -271,7 +271,7 @@ apis:
   humanURL: https://jsonplaceholder.typicode.com
   baseURL: https://jsonplaceholder.typicode.com
   tags:
-  - To-Dos
+  - Todos
   tags_raw:
   - Todos
   properties:
