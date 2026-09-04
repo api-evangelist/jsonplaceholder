@@ -27,11 +27,11 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/jsonplaceholder.png
 name: JSONPlaceholder
-description: JSONPlaceholder is a free, no-auth fake REST API for prototyping, tutorials, and testing.
-  It exposes six relational resources — posts, comments, albums, photos, todos, and users — over six standard
-  REST routes per resource. All write operations (POST, PUT, PATCH, DELETE) are accepted and respond as
-  if successful, but no changes are persisted. The service is built on the open-source json-server engine
-  (also by typicode) and serves billions of requests per month with no rate limits or authentication.
+description: JSONPlaceholder is a free, no-auth fake REST API for prototyping, tutorials, and testing. It exposes
+  six relational resources — posts, comments, albums, photos, todos, and users — over six standard REST routes per
+  resource. All write operations (POST, PUT, PATCH, DELETE) are accepted and respond as if successful, but no changes
+  are persisted. The service is built on the open-source json-server engine (also by typicode) and serves billions
+  of requests per month with no rate limits or authentication.
 url: https://jsonplaceholder.typicode.com
 baseURL: https://jsonplaceholder.typicode.com
 specificationVersion: '0.23'
@@ -373,6 +373,15 @@ apis:
     url: examples/jsonplaceholder-todo-example.json
   - type: Examples
     url: examples/jsonplaceholder-user-example.json
+- name: JSONPlaceholder
+  description: Fake data for testing and prototyping
+  humanURL: http://jsonplaceholder.typicode.com/
+  baseURL: http://jsonplaceholder.typicode.com/
+  tags:
+  - Test Data
+  properties:
+  - type: Documentation
+    url: http://jsonplaceholder.typicode.com/
 common:
 - type: IssueTracker
   url: https://github.com/typicode/jsonplaceholder/issues
@@ -413,71 +422,65 @@ common:
 - type: Features
   data:
   - name: Six Relational Resources
-    description: Posts, comments, albums, photos, todos, and users with realistic relationships between
-      them (posts belong to users, comments belong to posts, etc.).
+    description: Posts, comments, albums, photos, todos, and users with realistic relationships between them (posts
+      belong to users, comments belong to posts, etc.).
   - name: Full REST Surface
-    description: GET, POST, PUT, PATCH, and DELETE methods are accepted on every resource — write operations
-      simulate success without persisting changes.
+    description: GET, POST, PUT, PATCH, and DELETE methods are accepted on every resource — write operations simulate
+      success without persisting changes.
   - name: Nested Routes
-    description: Single-level nested access such as /posts/1/comments, /albums/1/photos, and /users/1/todos
-      for relational queries.
+    description: Single-level nested access such as /posts/1/comments, /albums/1/photos, and /users/1/todos for
+      relational queries.
   - name: Query Filtering
     description: Basic query-string filtering on any resource field (e.g. /comments?postId=1, /posts?userId=1).
   - name: No Authentication
-    description: Open to the public — no API keys, OAuth, or signup required. Use it in tutorials, sandboxes,
-      and frontend demos freely.
+    description: Open to the public — no API keys, OAuth, or signup required. Use it in tutorials, sandboxes, and
+      frontend demos freely.
   - name: No Rate Limits
-    description: The service does not publish or enforce documented rate limits and routinely serves about
-      three billion requests per month.
+    description: The service does not publish or enforce documented rate limits and routinely serves about three
+      billion requests per month.
   - name: CORS Enabled
-    description: All origins are allowed, making the service usable directly from browser-based applications
-      without a proxy.
+    description: All origins are allowed, making the service usable directly from browser-based applications without
+      a proxy.
   - name: HTTPS Only
     description: Served exclusively over HTTPS for safe inclusion in modern web tutorials and demos.
 - type: UseCases
   data:
   - name: Frontend Prototyping
-    description: Wire up React, Vue, Angular, or Svelte tutorials against a real HTTP endpoint without
-      standing up a backend.
+    description: Wire up React, Vue, Angular, or Svelte tutorials against a real HTTP endpoint without standing
+      up a backend.
   - name: API Client Testing
-    description: Exercise HTTP client libraries (fetch, axios, requests, OkHttp) against a stable public
-      REST surface.
+    description: Exercise HTTP client libraries (fetch, axios, requests, OkHttp) against a stable public REST surface.
   - name: Tutorial and Courseware
     description: Power coding tutorials, bootcamp exercises, and conference workshops that need a deterministic
       JSON API.
   - name: Mobile App Demos
-    description: Drive iOS and Android sample apps that demonstrate networking, list rendering, and CRUD
-      flows.
+    description: Drive iOS and Android sample apps that demonstrate networking, list rendering, and CRUD flows.
   - name: Tooling QA
-    description: Smoke-test API generators, codegen tools, SDK builders, and OpenAPI tooling against a
-      stable real-world API.
+    description: Smoke-test API generators, codegen tools, SDK builders, and OpenAPI tooling against a stable real-world
+      API.
   - name: Workshop Sandboxes
-    description: Provide a no-signup HTTP API for hands-on workshops where participants cannot wait for
-      credentials.
+    description: Provide a no-signup HTTP API for hands-on workshops where participants cannot wait for credentials.
 - type: Integrations
   data:
   - name: json-server
-    description: The open-source engine that powers JSONPlaceholder — runs the same fake REST API locally
-      with a single command.
+    description: The open-source engine that powers JSONPlaceholder — runs the same fake REST API locally with a
+      single command.
   - name: lowdb
-    description: The tiny local JSON database that json-server uses for storage; ships from the same typicode
-      org.
+    description: The tiny local JSON database that json-server uses for storage; ships from the same typicode org.
   - name: Postman
     description: Public collections wrap JSONPlaceholder for quick HTTP exploration and learning.
   - name: Hoppscotch
-    description: Frequently used as the default example endpoint in HTTP clients including Hoppscotch
-      and Insomnia.
+    description: Frequently used as the default example endpoint in HTTP clients including Hoppscotch and Insomnia.
   - name: MSW (Mock Service Worker)
-    description: Often paired with MSW so frontend tests can intercept and stub JSONPlaceholder traffic
-      deterministically.
+    description: Often paired with MSW so frontend tests can intercept and stub JSONPlaceholder traffic deterministically.
 - type: Solutions
   data:
   - name: Local Mirror via json-server
-    description: For teams that need write persistence or offline development, install json-server, point
-      it at a local db.json, and reproduce JSONPlaceholder routes verbatim.
+    description: For teams that need write persistence or offline development, install json-server, point it at
+      a local db.json, and reproduce JSONPlaceholder routes verbatim.
   - name: My JSON Server
-    description: typicode operates an additional service (My JSON Server) that turns any GitHub-hosted
-      db.json into a personal hosted fake REST API.
+    description: typicode operates an additional service (My JSON Server) that turns any GitHub-hosted db.json into
+      a personal hosted fake REST API.
 - type: Documentation
   url: https://jsonplaceholder.typicode.com/guide/
 - type: GitHubOrg
@@ -488,6 +491,8 @@ common:
   url: https://x.com/typicode
 - type: FinOps
   url: finops/jsonplaceholder-finops.yml
+- type: Website
+  url: http://jsonplaceholder.typicode.com/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
