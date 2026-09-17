@@ -265,60 +265,6 @@ apis:
     url: examples/jsonplaceholder-todo-example.json
   - type: Examples
     url: examples/jsonplaceholder-user-example.json
-- aid: jsonplaceholder:jsonplaceholder-todos-api
-  name: JSONPlaceholder Todos API
-  description: 200 sample todo items owned by users
-  humanURL: https://jsonplaceholder.typicode.com
-  baseURL: https://jsonplaceholder.typicode.com
-  tags:
-  - To-Dos
-  tags_raw:
-  - Todos
-  properties:
-  - type: OpenAPI
-    url: openapi/jsonplaceholder-todos-api-openapi.yml
-  - type: Documentation
-    url: https://jsonplaceholder.typicode.com
-  - type: GettingStarted
-    url: https://jsonplaceholder.typicode.com/guide/
-  - type: JSONSchema
-    url: json-schema/jsonplaceholder-post-schema.json
-  - type: JSONSchema
-    url: json-schema/jsonplaceholder-comment-schema.json
-  - type: JSONSchema
-    url: json-schema/jsonplaceholder-album-schema.json
-  - type: JSONSchema
-    url: json-schema/jsonplaceholder-photo-schema.json
-  - type: JSONSchema
-    url: json-schema/jsonplaceholder-todo-schema.json
-  - type: JSONSchema
-    url: json-schema/jsonplaceholder-user-schema.json
-  - type: JSONStructure
-    url: json-structure/jsonplaceholder-post-structure.json
-  - type: JSONStructure
-    url: json-structure/jsonplaceholder-comment-structure.json
-  - type: JSONStructure
-    url: json-structure/jsonplaceholder-album-structure.json
-  - type: JSONStructure
-    url: json-structure/jsonplaceholder-photo-structure.json
-  - type: JSONStructure
-    url: json-structure/jsonplaceholder-todo-structure.json
-  - type: JSONStructure
-    url: json-structure/jsonplaceholder-user-structure.json
-  - type: JSONLD
-    url: json-ld/jsonplaceholder-context.jsonld
-  - type: Examples
-    url: examples/jsonplaceholder-post-example.json
-  - type: Examples
-    url: examples/jsonplaceholder-comment-example.json
-  - type: Examples
-    url: examples/jsonplaceholder-album-example.json
-  - type: Examples
-    url: examples/jsonplaceholder-photo-example.json
-  - type: Examples
-    url: examples/jsonplaceholder-todo-example.json
-  - type: Examples
-    url: examples/jsonplaceholder-user-example.json
 - aid: jsonplaceholder:jsonplaceholder-users-api
   name: JSONPlaceholder Users API
   description: 10 sample users with profile, address, and company metadata
@@ -382,6 +328,58 @@ apis:
   properties:
   - type: Documentation
     url: http://jsonplaceholder.typicode.com/
+- aid: jsonplaceholder:jsonplaceholder-to-dos-api
+  name: JSONPlaceholder To Dos API
+  description: 200 sample todo items owned by users
+  humanURL: https://jsonplaceholder.typicode.com
+  baseURL: https://jsonplaceholder.typicode.com
+  tags:
+  - To Dos
+  properties:
+  - type: OpenAPI
+    url: openapi/jsonplaceholder-to-dos-api-openapi.yml
+  - type: Documentation
+    url: https://jsonplaceholder.typicode.com
+  - type: GettingStarted
+    url: https://jsonplaceholder.typicode.com/guide/
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-post-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-comment-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-album-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-photo-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-todo-schema.json
+  - type: JSONSchema
+    url: json-schema/jsonplaceholder-user-schema.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-post-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-comment-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-album-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-photo-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-todo-structure.json
+  - type: JSONStructure
+    url: json-structure/jsonplaceholder-user-structure.json
+  - type: JSONLD
+    url: json-ld/jsonplaceholder-context.jsonld
+  - type: Examples
+    url: examples/jsonplaceholder-post-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-comment-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-album-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-photo-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-todo-example.json
+  - type: Examples
+    url: examples/jsonplaceholder-user-example.json
 common:
 - type: IssueTracker
   url: https://github.com/typicode/jsonplaceholder/issues
