@@ -5,75 +5,127 @@ info:
   - x-generated-from differs across the merged source definitions and was not carried
   - x-last-validated differs across the merged source definitions and was not carried
   version: '1.0'
-  description: 'Operations tagged Posts across 2 of this provider''s published API definitions: jsonplaceholder-openapi.yml, openapi.yaml. Each path carries the servers of the definition it was published in.'
+  description: 'Operations tagged Posts across 2 of this provider''s published API definitions: openapi.yaml, jsonplaceholder-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
+- url: https://jsonplaceholder.typicode.com/
 - url: https://jsonplaceholder.typicode.com
   description: Public production endpoint (no authentication required)
-- url: https://jsonplaceholder.typicode.com/
 tags:
 - name: Posts
-  description: 100 sample blog posts owned by users
 paths:
   /posts:
     get:
-      operationId: listPosts
-      summary: JSONPlaceholder List Posts
-      description: Returns all 100 sample posts. Supports filtering by any field via query parameters (e.g. `?userId=1`).
-      tags:
-      - Posts
+      description: Get posts
+      operationId: list-posts
       parameters:
       - name: userId
         in: query
-        description: Filter posts by owning user id.
+        description: Filter results by user ID
         required: false
+        style: form
         schema:
           type: integer
-        example: 1
-      - name: id
+          maxItems: 1
+      - name: title
         in: query
-        description: Filter posts by post id.
+        description: Filter results by title
         required: false
+        style: form
         schema:
-          type: integer
-        example: 1
+          type: string
+          maxItems: 1
       responses:
         '200':
-          description: Array of posts.
+          description: OK
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Post'
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-    post:
-      operationId: createPost
-      summary: JSONPlaceholder Create Post
-      description: Creates a new post. Returns the created post with a generated id, but no data is actually persisted on the server.
+                  $ref: '#/components/schemas/post'
       tags:
       - Posts
+      summary: List posts
+      x-summary-source: derived
+    post:
+      description: Create post
       requestBody:
         required: true
-        description: New post payload.
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PostInput'
+              $ref: '#/components/schemas/post'
       responses:
         '201':
-          description: Created post (simulated, not persisted).
+          description: Created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Post'
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
+                $ref: '#/components/schemas/post'
+      tags:
+      - Posts
+      summary: Create posts
+      x-summary-source: derived
+      operationId: postPosts
+      x-operation-id-source: derived
     servers:
-    - url: https://jsonplaceholder.typicode.com
-      description: Public production endpoint (no authentication required)
+    - url: https://jsonplaceholder.typicode.com/
+  /posts/{post-id}:
+    get:
+      description: Get post by ID
+      parameters:
+      - $ref: '#/components/parameters/post-id'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/post'
+      tags:
+      - Posts
+      summary: Get posts by post id
+      x-summary-source: derived
+      operationId: getPostsByPostId
+      x-operation-id-source: derived
+    patch:
+      description: Update post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post'
+      parameters:
+      - $ref: '#/components/parameters/post-id'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/post'
+      tags:
+      - Posts
+      summary: Update posts by post id
+      x-summary-source: derived
+      operationId: patchPostsByPostId
+      x-operation-id-source: derived
+    delete:
+      description: Delete post
+      parameters:
+      - $ref: '#/components/parameters/post-id'
+      responses:
+        '200':
+          description: OK
+      tags:
+      - Posts
+      summary: Delete posts by post id
+      x-summary-source: derived
+      operationId: deletePostsByPostId
+      x-operation-id-source: derived
+    servers:
+    - url: https://jsonplaceholder.typicode.com/
   /posts/{id}:
     parameters:
     - name: id
@@ -226,52 +278,28 @@ paths:
     servers:
     - url: https://jsonplaceholder.typicode.com
       description: Public production endpoint (no authentication required)
-  /posts/{post-id}:
-    get:
-      description: Get post by ID
-      parameters:
-      - $ref: '#/components/parameters/post-id'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/post'
-      tags:
-      - Posts
-    patch:
-      description: Update post
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/post'
-      parameters:
-      - $ref: '#/components/parameters/post-id'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/post'
-      tags:
-      - Posts
-    delete:
-      description: Delete post
-      parameters:
-      - $ref: '#/components/parameters/post-id'
-      responses:
-        '200':
-          description: OK
-      tags:
-      - Posts
-    servers:
-    - url: https://jsonplaceholder.typicode.com/
 components:
+  parameters:
+    post-id:
+      name: post-id
+      in: path
+      description: 'key: id of post'
+      required: true
+      style: simple
+      schema:
+        type: integer
   schemas:
+    post:
+      type: object
+      properties:
+        userId:
+          type: integer
+        id:
+          type: integer
+        title:
+          type: string
+        body:
+          type: string
     PostInput:
       type: object
       description: Payload for creating or partially updating a post.
@@ -344,26 +372,6 @@ components:
           type: string
           description: Comment body text.
           example: laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus
-    post:
-      type: object
-      properties:
-        userId:
-          type: integer
-        id:
-          type: integer
-        title:
-          type: string
-        body:
-          type: string
-  parameters:
-    post-id:
-      name: post-id
-      in: path
-      description: 'key: id of post'
-      required: true
-      style: simple
-      schema:
-        type: integer
 x-refined-from:
-- jsonplaceholder-openapi.yml
 - openapi.yaml
+- jsonplaceholder-openapi.yml

@@ -15,7 +15,7 @@ servers:
 - url: https://jsonplaceholder.typicode.com
   description: Public production endpoint (no authentication required)
 tags:
-- name: Todos
+- name: To Dos
   description: 200 sample todo items owned by users
 paths:
   /todos:
@@ -24,7 +24,7 @@ paths:
       summary: JSONPlaceholder List Todos
       description: Returns all 200 sample todos. Supports filtering by any field via query parameters (e.g. `?userId=1&completed=true`).
       tags:
-      - Todos
+      - To Dos
       parameters:
       - name: userId
         in: query
@@ -57,7 +57,7 @@ paths:
       summary: JSONPlaceholder Create Todo
       description: Creates a new todo (simulated).
       tags:
-      - Todos
+      - To Dos
       requestBody:
         required: true
         content:
@@ -88,7 +88,7 @@ paths:
       summary: JSONPlaceholder Get Todo
       description: Returns a single todo by id.
       tags:
-      - Todos
+      - To Dos
       responses:
         '200':
           description: A single todo.
@@ -104,7 +104,7 @@ paths:
       summary: JSONPlaceholder Replace Todo
       description: Replaces a todo in full (simulated).
       tags:
-      - Todos
+      - To Dos
       requestBody:
         required: true
         content:
@@ -126,7 +126,7 @@ paths:
       summary: JSONPlaceholder Update Todo
       description: Partially updates a todo (simulated).
       tags:
-      - Todos
+      - To Dos
       requestBody:
         required: true
         content:
@@ -148,7 +148,7 @@ paths:
       summary: JSONPlaceholder Delete Todo
       description: Deletes a todo (simulated).
       tags:
-      - Todos
+      - To Dos
       responses:
         '200':
           description: Deletion accepted (simulated).
@@ -173,7 +173,7 @@ paths:
       summary: JSONPlaceholder List User Todos
       description: Returns all todos owned by a single user.
       tags:
-      - Todos
+      - To Dos
       responses:
         '200':
           description: Array of todos for the user.

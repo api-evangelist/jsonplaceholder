@@ -208,6 +208,26 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    Album:
+      type: object
+      description: A sample photo album owned by a user.
+      required:
+      - id
+      - userId
+      - title
+      properties:
+        id:
+          type: integer
+          description: Unique album identifier (1-100).
+          example: 1
+        userId:
+          type: integer
+          description: Identifier of the user who owns the album.
+          example: 1
+        title:
+          type: string
+          description: Album title.
+          example: quidem molestiae enim
     AlbumInput:
       type: object
       description: Payload for creating or partially updating an album.
@@ -252,23 +272,3 @@ components:
           format: uri
           description: Thumbnail image URL (placeholder service).
           example: https://via.placeholder.com/150/92c952
-    Album:
-      type: object
-      description: A sample photo album owned by a user.
-      required:
-      - id
-      - userId
-      - title
-      properties:
-        id:
-          type: integer
-          description: Unique album identifier (1-100).
-          example: 1
-        userId:
-          type: integer
-          description: Identifier of the user who owns the album.
-          example: 1
-        title:
-          type: string
-          description: Album title.
-          example: quidem molestiae enim

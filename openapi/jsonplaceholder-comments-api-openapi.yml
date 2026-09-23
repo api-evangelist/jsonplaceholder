@@ -182,27 +182,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CommentInput:
-      type: object
-      description: Payload for creating or partially updating a comment.
-      properties:
-        postId:
-          type: integer
-          description: Identifier of the post being commented on.
-          example: 1
-        name:
-          type: string
-          description: Display name / subject of the comment.
-          example: Great post
-        email:
-          type: string
-          format: email
-          description: Email address of the commenter.
-          example: reader@example.com
-        body:
-          type: string
-          description: Comment body text.
-          example: Thanks for writing this.
     Comment:
       type: object
       description: A sample comment attached to a post.
@@ -234,3 +213,24 @@ components:
           type: string
           description: Comment body text.
           example: laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus
+    CommentInput:
+      type: object
+      description: Payload for creating or partially updating a comment.
+      properties:
+        postId:
+          type: integer
+          description: Identifier of the post being commented on.
+          example: 1
+        name:
+          type: string
+          description: Display name / subject of the comment.
+          example: Great post
+        email:
+          type: string
+          format: email
+          description: Email address of the commenter.
+          example: reader@example.com
+        body:
+          type: string
+          description: Comment body text.
+          example: Thanks for writing this.

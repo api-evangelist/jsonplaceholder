@@ -227,6 +227,98 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    Company:
+      type: object
+      description: User's company affiliation.
+      properties:
+        name:
+          type: string
+          example: Romaguera-Crona
+        catchPhrase:
+          type: string
+          example: Multi-layered client-server neural-net
+        bs:
+          type: string
+          example: harness real-time e-markets
+    Album:
+      type: object
+      description: A sample photo album owned by a user.
+      required:
+      - id
+      - userId
+      - title
+      properties:
+        id:
+          type: integer
+          description: Unique album identifier (1-100).
+          example: 1
+        userId:
+          type: integer
+          description: Identifier of the user who owns the album.
+          example: 1
+        title:
+          type: string
+          description: Album title.
+          example: quidem molestiae enim
+    Geo:
+      type: object
+      description: Latitude and longitude (strings in the JSONPlaceholder dataset).
+      properties:
+        lat:
+          type: string
+          example: '-37.3159'
+        lng:
+          type: string
+          example: '81.1496'
+    Post:
+      type: object
+      description: A sample blog post owned by a user.
+      required:
+      - id
+      - userId
+      - title
+      - body
+      properties:
+        id:
+          type: integer
+          description: Unique post identifier (1-100).
+          example: 1
+        userId:
+          type: integer
+          description: Identifier of the user who authored the post (1-10).
+          example: 1
+        title:
+          type: string
+          description: Post title.
+          example: sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+        body:
+          type: string
+          description: Post body / content.
+          example: quia et suscipit suscipit recusandae consequuntur expedita et cum
+    UserInput:
+      type: object
+      description: Payload for creating or partially updating a user.
+      properties:
+        name:
+          type: string
+          example: Ada Lovelace
+        username:
+          type: string
+          example: alovelace
+        email:
+          type: string
+          format: email
+          example: ada@example.com
+        phone:
+          type: string
+          example: 555-0100
+        website:
+          type: string
+          example: example.com
+        address:
+          $ref: '#/components/schemas/Address'
+        company:
+          $ref: '#/components/schemas/Company'
     Address:
       type: object
       description: Street, city, postal code, and geo coordinates.
@@ -245,19 +337,31 @@ components:
           example: 92998-3874
         geo:
           $ref: '#/components/schemas/Geo'
-    Company:
+    Todo:
       type: object
-      description: User's company affiliation.
+      description: A sample todo item owned by a user.
+      required:
+      - id
+      - userId
+      - title
+      - completed
       properties:
-        name:
+        id:
+          type: integer
+          description: Unique todo identifier (1-200).
+          example: 1
+        userId:
+          type: integer
+          description: Identifier of the user who owns the todo.
+          example: 1
+        title:
           type: string
-          example: Romaguera-Crona
-        catchPhrase:
-          type: string
-          example: Multi-layered client-server neural-net
-        bs:
-          type: string
-          example: harness real-time e-markets
+          description: Todo title.
+          example: delectus aut autem
+        completed:
+          type: boolean
+          description: Whether the todo is completed.
+          example: false
     User:
       type: object
       description: A sample user with profile, address, and company metadata.
@@ -296,107 +400,3 @@ components:
           $ref: '#/components/schemas/Address'
         company:
           $ref: '#/components/schemas/Company'
-    UserInput:
-      type: object
-      description: Payload for creating or partially updating a user.
-      properties:
-        name:
-          type: string
-          example: Ada Lovelace
-        username:
-          type: string
-          example: alovelace
-        email:
-          type: string
-          format: email
-          example: ada@example.com
-        phone:
-          type: string
-          example: 555-0100
-        website:
-          type: string
-          example: example.com
-        address:
-          $ref: '#/components/schemas/Address'
-        company:
-          $ref: '#/components/schemas/Company'
-    Todo:
-      type: object
-      description: A sample todo item owned by a user.
-      required:
-      - id
-      - userId
-      - title
-      - completed
-      properties:
-        id:
-          type: integer
-          description: Unique todo identifier (1-200).
-          example: 1
-        userId:
-          type: integer
-          description: Identifier of the user who owns the todo.
-          example: 1
-        title:
-          type: string
-          description: Todo title.
-          example: delectus aut autem
-        completed:
-          type: boolean
-          description: Whether the todo is completed.
-          example: false
-    Geo:
-      type: object
-      description: Latitude and longitude (strings in the JSONPlaceholder dataset).
-      properties:
-        lat:
-          type: string
-          example: '-37.3159'
-        lng:
-          type: string
-          example: '81.1496'
-    Album:
-      type: object
-      description: A sample photo album owned by a user.
-      required:
-      - id
-      - userId
-      - title
-      properties:
-        id:
-          type: integer
-          description: Unique album identifier (1-100).
-          example: 1
-        userId:
-          type: integer
-          description: Identifier of the user who owns the album.
-          example: 1
-        title:
-          type: string
-          description: Album title.
-          example: quidem molestiae enim
-    Post:
-      type: object
-      description: A sample blog post owned by a user.
-      required:
-      - id
-      - userId
-      - title
-      - body
-      properties:
-        id:
-          type: integer
-          description: Unique post identifier (1-100).
-          example: 1
-        userId:
-          type: integer
-          description: Identifier of the user who authored the post (1-10).
-          example: 1
-        title:
-          type: string
-          description: Post title.
-          example: sunt aut facere repellat provident occaecati excepturi optio reprehenderit
-        body:
-          type: string
-          description: Post body / content.
-          example: quia et suscipit suscipit recusandae consequuntur expedita et cum
