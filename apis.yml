@@ -47,7 +47,7 @@ tags:
 - Testing
 - Prototyping
 - Fake API
-- Open-Source
+- Open Source
 - REST
 tags_raw:
 - Development
@@ -56,12 +56,12 @@ tags_raw:
 - Fake API
 - Open Source
 - REST
+- Open-Source
 apis:
 - aid: jsonplaceholder:jsonplaceholder-albums-api
   name: JSONPlaceholder Albums API
   description: 100 sample photo albums owned by users
   humanURL: https://jsonplaceholder.typicode.com
-  baseURL: https://jsonplaceholder.typicode.com
   tags:
   - Albums
   properties:
@@ -113,7 +113,6 @@ apis:
   name: JSONPlaceholder Comments API
   description: 500 sample comments belonging to posts
   humanURL: https://jsonplaceholder.typicode.com
-  baseURL: https://jsonplaceholder.typicode.com
   tags:
   - Comments
   properties:
@@ -165,7 +164,6 @@ apis:
   name: JSONPlaceholder Photos API
   description: 5000 sample photos belonging to albums
   humanURL: https://jsonplaceholder.typicode.com
-  baseURL: https://jsonplaceholder.typicode.com
   tags:
   - Photos
   properties:
@@ -217,7 +215,6 @@ apis:
   name: JSONPlaceholder Posts API
   description: 100 sample blog posts owned by users
   humanURL: https://jsonplaceholder.typicode.com
-  baseURL: https://jsonplaceholder.typicode.com
   tags:
   - Posts
   properties:
@@ -269,7 +266,6 @@ apis:
   name: JSONPlaceholder Users API
   description: 10 sample users with profile, address, and company metadata
   humanURL: https://jsonplaceholder.typicode.com
-  baseURL: https://jsonplaceholder.typicode.com
   tags:
   - User
   tags_raw:
@@ -322,7 +318,6 @@ apis:
 - name: JSONPlaceholder
   description: Fake data for testing and prototyping
   humanURL: http://jsonplaceholder.typicode.com/
-  baseURL: http://jsonplaceholder.typicode.com/
   tags:
   - Test Data
   properties:
@@ -332,10 +327,7 @@ apis:
   name: JSONPlaceholder To Dos API
   description: 200 sample todo items owned by users
   humanURL: https://jsonplaceholder.typicode.com
-  baseURL: https://jsonplaceholder.typicode.com
   tags:
-  - To-Dos
-  tags_raw:
   - To Dos
   properties:
   - type: OpenAPI

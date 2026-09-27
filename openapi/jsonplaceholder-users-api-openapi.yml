@@ -240,26 +240,6 @@ components:
         bs:
           type: string
           example: harness real-time e-markets
-    Album:
-      type: object
-      description: A sample photo album owned by a user.
-      required:
-      - id
-      - userId
-      - title
-      properties:
-        id:
-          type: integer
-          description: Unique album identifier (1-100).
-          example: 1
-        userId:
-          type: integer
-          description: Identifier of the user who owns the album.
-          example: 1
-        title:
-          type: string
-          description: Album title.
-          example: quidem molestiae enim
     Geo:
       type: object
       description: Latitude and longitude (strings in the JSONPlaceholder dataset).
@@ -270,31 +250,6 @@ components:
         lng:
           type: string
           example: '81.1496'
-    Post:
-      type: object
-      description: A sample blog post owned by a user.
-      required:
-      - id
-      - userId
-      - title
-      - body
-      properties:
-        id:
-          type: integer
-          description: Unique post identifier (1-100).
-          example: 1
-        userId:
-          type: integer
-          description: Identifier of the user who authored the post (1-10).
-          example: 1
-        title:
-          type: string
-          description: Post title.
-          example: sunt aut facere repellat provident occaecati excepturi optio reprehenderit
-        body:
-          type: string
-          description: Post body / content.
-          example: quia et suscipit suscipit recusandae consequuntur expedita et cum
     UserInput:
       type: object
       description: Payload for creating or partially updating a user.
@@ -319,49 +274,6 @@ components:
           $ref: '#/components/schemas/Address'
         company:
           $ref: '#/components/schemas/Company'
-    Address:
-      type: object
-      description: Street, city, postal code, and geo coordinates.
-      properties:
-        street:
-          type: string
-          example: Kulas Light
-        suite:
-          type: string
-          example: Apt. 556
-        city:
-          type: string
-          example: Gwenborough
-        zipcode:
-          type: string
-          example: 92998-3874
-        geo:
-          $ref: '#/components/schemas/Geo'
-    Todo:
-      type: object
-      description: A sample todo item owned by a user.
-      required:
-      - id
-      - userId
-      - title
-      - completed
-      properties:
-        id:
-          type: integer
-          description: Unique todo identifier (1-200).
-          example: 1
-        userId:
-          type: integer
-          description: Identifier of the user who owns the todo.
-          example: 1
-        title:
-          type: string
-          description: Todo title.
-          example: delectus aut autem
-        completed:
-          type: boolean
-          description: Whether the todo is completed.
-          example: false
     User:
       type: object
       description: A sample user with profile, address, and company metadata.
@@ -400,3 +312,91 @@ components:
           $ref: '#/components/schemas/Address'
         company:
           $ref: '#/components/schemas/Company'
+    Todo:
+      type: object
+      description: A sample todo item owned by a user.
+      required:
+      - id
+      - userId
+      - title
+      - completed
+      properties:
+        id:
+          type: integer
+          description: Unique todo identifier (1-200).
+          example: 1
+        userId:
+          type: integer
+          description: Identifier of the user who owns the todo.
+          example: 1
+        title:
+          type: string
+          description: Todo title.
+          example: delectus aut autem
+        completed:
+          type: boolean
+          description: Whether the todo is completed.
+          example: false
+    Post:
+      type: object
+      description: A sample blog post owned by a user.
+      required:
+      - id
+      - userId
+      - title
+      - body
+      properties:
+        id:
+          type: integer
+          description: Unique post identifier (1-100).
+          example: 1
+        userId:
+          type: integer
+          description: Identifier of the user who authored the post (1-10).
+          example: 1
+        title:
+          type: string
+          description: Post title.
+          example: sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+        body:
+          type: string
+          description: Post body / content.
+          example: quia et suscipit suscipit recusandae consequuntur expedita et cum
+    Address:
+      type: object
+      description: Street, city, postal code, and geo coordinates.
+      properties:
+        street:
+          type: string
+          example: Kulas Light
+        suite:
+          type: string
+          example: Apt. 556
+        city:
+          type: string
+          example: Gwenborough
+        zipcode:
+          type: string
+          example: 92998-3874
+        geo:
+          $ref: '#/components/schemas/Geo'
+    Album:
+      type: object
+      description: A sample photo album owned by a user.
+      required:
+      - id
+      - userId
+      - title
+      properties:
+        id:
+          type: integer
+          description: Unique album identifier (1-100).
+          example: 1
+        userId:
+          type: integer
+          description: Identifier of the user who owns the album.
+          example: 1
+        title:
+          type: string
+          description: Album title.
+          example: quidem molestiae enim

@@ -181,6 +181,28 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    PhotoInput:
+      type: object
+      description: Payload for creating or partially updating a photo.
+      properties:
+        albumId:
+          type: integer
+          description: Identifier of the album this photo belongs to.
+          example: 1
+        title:
+          type: string
+          description: Photo title / caption.
+          example: A new photo
+        url:
+          type: string
+          format: uri
+          description: Full-size image URL.
+          example: https://via.placeholder.com/600/abcdef
+        thumbnailUrl:
+          type: string
+          format: uri
+          description: Thumbnail image URL.
+          example: https://via.placeholder.com/150/abcdef
     Photo:
       type: object
       description: A sample photo belonging to an album.
@@ -213,25 +235,3 @@ components:
           format: uri
           description: Thumbnail image URL (placeholder service).
           example: https://via.placeholder.com/150/92c952
-    PhotoInput:
-      type: object
-      description: Payload for creating or partially updating a photo.
-      properties:
-        albumId:
-          type: integer
-          description: Identifier of the album this photo belongs to.
-          example: 1
-        title:
-          type: string
-          description: Photo title / caption.
-          example: A new photo
-        url:
-          type: string
-          format: uri
-          description: Full-size image URL.
-          example: https://via.placeholder.com/600/abcdef
-        thumbnailUrl:
-          type: string
-          format: uri
-          description: Thumbnail image URL.
-          example: https://via.placeholder.com/150/abcdef

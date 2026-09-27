@@ -300,6 +300,37 @@ components:
           type: string
         body:
           type: string
+    Comment:
+      type: object
+      description: A sample comment attached to a post.
+      required:
+      - id
+      - postId
+      - name
+      - email
+      - body
+      properties:
+        id:
+          type: integer
+          description: Unique comment identifier (1-500).
+          example: 1
+        postId:
+          type: integer
+          description: Identifier of the post this comment belongs to.
+          example: 1
+        name:
+          type: string
+          description: Display name / subject of the comment.
+          example: id labore ex et quam laborum
+        email:
+          type: string
+          format: email
+          description: Email address of the commenter.
+          example: Eliseo@gardner.biz
+        body:
+          type: string
+          description: Comment body text.
+          example: laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus
     PostInput:
       type: object
       description: Payload for creating or partially updating a post.
@@ -341,37 +372,6 @@ components:
           type: string
           description: Post body / content.
           example: quia et suscipit suscipit recusandae consequuntur expedita et cum
-    Comment:
-      type: object
-      description: A sample comment attached to a post.
-      required:
-      - id
-      - postId
-      - name
-      - email
-      - body
-      properties:
-        id:
-          type: integer
-          description: Unique comment identifier (1-500).
-          example: 1
-        postId:
-          type: integer
-          description: Identifier of the post this comment belongs to.
-          example: 1
-        name:
-          type: string
-          description: Display name / subject of the comment.
-          example: id labore ex et quam laborum
-        email:
-          type: string
-          format: email
-          description: Email address of the commenter.
-          example: Eliseo@gardner.biz
-        body:
-          type: string
-          description: Comment body text.
-          example: laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus
 x-refined-from:
 - openapi.yaml
 - jsonplaceholder-openapi.yml
