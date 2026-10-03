@@ -188,6 +188,22 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    TodoInput:
+      type: object
+      description: Payload for creating or partially updating a todo.
+      properties:
+        userId:
+          type: integer
+          description: Identifier of the user who owns the todo.
+          example: 1
+        title:
+          type: string
+          description: Todo title.
+          example: Write integration tests
+        completed:
+          type: boolean
+          description: Whether the todo is completed.
+          example: false
     Todo:
       type: object
       description: A sample todo item owned by a user.
@@ -209,22 +225,6 @@ components:
           type: string
           description: Todo title.
           example: delectus aut autem
-        completed:
-          type: boolean
-          description: Whether the todo is completed.
-          example: false
-    TodoInput:
-      type: object
-      description: Payload for creating or partially updating a todo.
-      properties:
-        userId:
-          type: integer
-          description: Identifier of the user who owns the todo.
-          example: 1
-        title:
-          type: string
-          description: Todo title.
-          example: Write integration tests
         completed:
           type: boolean
           description: Whether the todo is completed.

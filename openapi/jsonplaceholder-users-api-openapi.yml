@@ -240,40 +240,6 @@ components:
         bs:
           type: string
           example: harness real-time e-markets
-    Geo:
-      type: object
-      description: Latitude and longitude (strings in the JSONPlaceholder dataset).
-      properties:
-        lat:
-          type: string
-          example: '-37.3159'
-        lng:
-          type: string
-          example: '81.1496'
-    UserInput:
-      type: object
-      description: Payload for creating or partially updating a user.
-      properties:
-        name:
-          type: string
-          example: Ada Lovelace
-        username:
-          type: string
-          example: alovelace
-        email:
-          type: string
-          format: email
-          example: ada@example.com
-        phone:
-          type: string
-          example: 555-0100
-        website:
-          type: string
-          example: example.com
-        address:
-          $ref: '#/components/schemas/Address'
-        company:
-          $ref: '#/components/schemas/Company'
     User:
       type: object
       description: A sample user with profile, address, and company metadata.
@@ -308,6 +274,40 @@ components:
           type: string
           description: Personal website (hostname or URL).
           example: hildegard.org
+        address:
+          $ref: '#/components/schemas/Address'
+        company:
+          $ref: '#/components/schemas/Company'
+    Geo:
+      type: object
+      description: Latitude and longitude (strings in the JSONPlaceholder dataset).
+      properties:
+        lat:
+          type: string
+          example: '-37.3159'
+        lng:
+          type: string
+          example: '81.1496'
+    UserInput:
+      type: object
+      description: Payload for creating or partially updating a user.
+      properties:
+        name:
+          type: string
+          example: Ada Lovelace
+        username:
+          type: string
+          example: alovelace
+        email:
+          type: string
+          format: email
+          example: ada@example.com
+        phone:
+          type: string
+          example: 555-0100
+        website:
+          type: string
+          example: example.com
         address:
           $ref: '#/components/schemas/Address'
         company:
@@ -362,24 +362,6 @@ components:
           type: string
           description: Post body / content.
           example: quia et suscipit suscipit recusandae consequuntur expedita et cum
-    Address:
-      type: object
-      description: Street, city, postal code, and geo coordinates.
-      properties:
-        street:
-          type: string
-          example: Kulas Light
-        suite:
-          type: string
-          example: Apt. 556
-        city:
-          type: string
-          example: Gwenborough
-        zipcode:
-          type: string
-          example: 92998-3874
-        geo:
-          $ref: '#/components/schemas/Geo'
     Album:
       type: object
       description: A sample photo album owned by a user.
@@ -400,3 +382,21 @@ components:
           type: string
           description: Album title.
           example: quidem molestiae enim
+    Address:
+      type: object
+      description: Street, city, postal code, and geo coordinates.
+      properties:
+        street:
+          type: string
+          example: Kulas Light
+        suite:
+          type: string
+          example: Apt. 556
+        city:
+          type: string
+          example: Gwenborough
+        zipcode:
+          type: string
+          example: 92998-3874
+        geo:
+          $ref: '#/components/schemas/Geo'

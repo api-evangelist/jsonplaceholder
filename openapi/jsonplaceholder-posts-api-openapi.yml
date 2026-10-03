@@ -279,15 +279,6 @@ paths:
     - url: https://jsonplaceholder.typicode.com
       description: Public production endpoint (no authentication required)
 components:
-  parameters:
-    post-id:
-      name: post-id
-      in: path
-      description: 'key: id of post'
-      required: true
-      style: simple
-      schema:
-        type: integer
   schemas:
     post:
       type: object
@@ -300,6 +291,47 @@ components:
           type: string
         body:
           type: string
+    Post:
+      type: object
+      description: A sample blog post owned by a user.
+      required:
+      - id
+      - userId
+      - title
+      - body
+      properties:
+        id:
+          type: integer
+          description: Unique post identifier (1-100).
+          example: 1
+        userId:
+          type: integer
+          description: Identifier of the user who authored the post (1-10).
+          example: 1
+        title:
+          type: string
+          description: Post title.
+          example: sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+        body:
+          type: string
+          description: Post body / content.
+          example: quia et suscipit suscipit recusandae consequuntur expedita et cum
+    PostInput:
+      type: object
+      description: Payload for creating or partially updating a post.
+      properties:
+        userId:
+          type: integer
+          description: Identifier of the user who authored the post.
+          example: 1
+        title:
+          type: string
+          description: Post title.
+          example: My New Post
+        body:
+          type: string
+          description: Post body / content.
+          example: This is the body of my new post.
     Comment:
       type: object
       description: A sample comment attached to a post.
@@ -331,47 +363,15 @@ components:
           type: string
           description: Comment body text.
           example: laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus
-    PostInput:
-      type: object
-      description: Payload for creating or partially updating a post.
-      properties:
-        userId:
-          type: integer
-          description: Identifier of the user who authored the post.
-          example: 1
-        title:
-          type: string
-          description: Post title.
-          example: My New Post
-        body:
-          type: string
-          description: Post body / content.
-          example: This is the body of my new post.
-    Post:
-      type: object
-      description: A sample blog post owned by a user.
-      required:
-      - id
-      - userId
-      - title
-      - body
-      properties:
-        id:
-          type: integer
-          description: Unique post identifier (1-100).
-          example: 1
-        userId:
-          type: integer
-          description: Identifier of the user who authored the post (1-10).
-          example: 1
-        title:
-          type: string
-          description: Post title.
-          example: sunt aut facere repellat provident occaecati excepturi optio reprehenderit
-        body:
-          type: string
-          description: Post body / content.
-          example: quia et suscipit suscipit recusandae consequuntur expedita et cum
+  parameters:
+    post-id:
+      name: post-id
+      in: path
+      description: 'key: id of post'
+      required: true
+      style: simple
+      schema:
+        type: integer
 x-refined-from:
 - openapi.yaml
 - jsonplaceholder-openapi.yml
