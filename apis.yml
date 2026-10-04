@@ -328,8 +328,6 @@ apis:
   description: 200 sample todo items owned by users
   humanURL: https://jsonplaceholder.typicode.com
   tags:
-  - To-Dos
-  tags_raw:
   - To Dos
   properties:
   - type: OpenAPI

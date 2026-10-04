@@ -291,6 +291,22 @@ components:
           type: string
         body:
           type: string
+    PostInput:
+      type: object
+      description: Payload for creating or partially updating a post.
+      properties:
+        userId:
+          type: integer
+          description: Identifier of the user who authored the post.
+          example: 1
+        title:
+          type: string
+          description: Post title.
+          example: My New Post
+        body:
+          type: string
+          description: Post body / content.
+          example: This is the body of my new post.
     Post:
       type: object
       description: A sample blog post owned by a user.
@@ -316,22 +332,6 @@ components:
           type: string
           description: Post body / content.
           example: quia et suscipit suscipit recusandae consequuntur expedita et cum
-    PostInput:
-      type: object
-      description: Payload for creating or partially updating a post.
-      properties:
-        userId:
-          type: integer
-          description: Identifier of the user who authored the post.
-          example: 1
-        title:
-          type: string
-          description: Post title.
-          example: My New Post
-        body:
-          type: string
-          description: Post body / content.
-          example: This is the body of my new post.
     Comment:
       type: object
       description: A sample comment attached to a post.
