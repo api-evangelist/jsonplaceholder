@@ -1,4 +1,4 @@
-# JSONPlaceholder (jsonplaceholder)
+# JSONPlaceholder
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,84 +66,184 @@
 
 JSONPlaceholder is a free, no-auth fake REST API for prototyping, tutorials, and testing. It exposes six relational resources — posts, comments, albums, photos, todos, and users — over six standard REST routes per resource. All write operations (POST, PUT, PATCH, DELETE) are accepted and respond as if successful, but no changes are persisted. The service is built on the open-source json-server engine (also by typicode) and serves billions of requests per month with no rate limits or authentication.
 
-**APIs.json:** [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com)
+**Areas:** Development · Testing · Prototyping · Fake API · Open Source · REST
 
-## Tags
+## JSONPlaceholder on APIs.io
 
-- Development
-- Testing
-- Prototyping
-- Fake API
-- Open Source
-- REST
+Everything profiled for JSONPlaceholder is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/jsonplaceholder/](https://apis.io/providers/jsonplaceholder/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (7)
 
-- **Created:** 2026-05-28
-- **Modified:** 2026-05-29
+- [JSONPlaceholder Albums API](https://apis.io/apis/jsonplaceholder/jsonplaceholder-albums-api/) — 100 sample photo albums owned by users
+- [JSONPlaceholder Comments API](https://apis.io/apis/jsonplaceholder/jsonplaceholder-comments-api/) — 500 sample comments belonging to posts
+- [JSONPlaceholder Photos API](https://apis.io/apis/jsonplaceholder/jsonplaceholder-photos-api/) — 5000 sample photos belonging to albums
+- [JSONPlaceholder Posts API](https://apis.io/apis/jsonplaceholder/jsonplaceholder-posts-api/) — 100 sample blog posts owned by users
+- [JSONPlaceholder Users API](https://apis.io/apis/jsonplaceholder/jsonplaceholder-users-api/) — 10 sample users with profile, address, and company metadata
+- [JSONPlaceholder](https://apis.io/apis/jsonplaceholder/jsonplaceholder/) — Fake data for testing and prototyping
+- [JSONPlaceholder To Dos API](https://apis.io/apis/jsonplaceholder/jsonplaceholder-to-dos-api/) — 200 sample todo items owned by users
 
-## APIs
+### Published properties
 
-### JSONPlaceholder REST API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Free fake REST API surface exposing six relational resources (posts, comments, albums, photos, todos, users). Supports GET / POST / PUT / PATCH / DELETE plus nested routes (e.g. /posts/1/comments) and basic query-string filtering (e.g. /comments?postId=1). Write operations are simulated — the service responds with the expected payload but does not persist changes.
+#### Agentic access (1)
 
-- **Human URL:** [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com)
-- **Base URL:** `https://jsonplaceholder.typicode.com`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Jsonplaceholder Agentic Access](https://apis.io/agentic-access/jsonplaceholder/jsonplaceholder-agentic-access/)
 
-- REST
-- Fake API
-- Testing
+#### JSON Schema (7)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://jsonplaceholder.typicode.com)
-- [Getting Started](https://jsonplaceholder.typicode.com/guide/)
-- [OpenAPI](openapi/jsonplaceholder-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/jsonplaceholder.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jsonplaceholder.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/jsonplaceholder-post-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/jsonplaceholder-comment-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/jsonplaceholder-album-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/jsonplaceholder-photo-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/jsonplaceholder-todo-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/jsonplaceholder-user-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/jsonplaceholder-post-structure.json)
-- [JSON Structure](json-structure/jsonplaceholder-comment-structure.json)
-- [JSON Structure](json-structure/jsonplaceholder-album-structure.json)
-- [JSON Structure](json-structure/jsonplaceholder-photo-structure.json)
-- [JSON Structure](json-structure/jsonplaceholder-todo-structure.json)
-- [JSON Structure](json-structure/jsonplaceholder-user-structure.json)
-- [JSON-LD](json-ld/jsonplaceholder-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Example](examples/jsonplaceholder-post-example.json)
-- [Example](examples/jsonplaceholder-comment-example.json)
-- [Example](examples/jsonplaceholder-album-example.json)
-- [Example](examples/jsonplaceholder-photo-example.json)
-- [Example](examples/jsonplaceholder-todo-example.json)
-- [Example](examples/jsonplaceholder-user-example.json)
+- [Album](https://apis.io/schemas/jsonplaceholder/jsonplaceholder-album/)
+- [Comment](https://apis.io/schemas/jsonplaceholder/jsonplaceholder-comment/)
+- [Photo](https://apis.io/schemas/jsonplaceholder/jsonplaceholder-photo/)
+- [Post](https://apis.io/schemas/jsonplaceholder/jsonplaceholder-post/)
+- [Todo](https://apis.io/schemas/jsonplaceholder/jsonplaceholder-todo/)
+- [User](https://apis.io/schemas/jsonplaceholder/jsonplaceholder-user/)
+- [Post](https://apis.io/schemas/jsonplaceholder/post/)
 
-## Common Properties
+#### JSON Structure (6)
+
+Data models expressed in JSON Structure.
+
+- [Jsonplaceholder Album Structure](https://apis.io/json-structure/jsonplaceholder/jsonplaceholder-album-structure/)
+- [Jsonplaceholder Comment Structure](https://apis.io/json-structure/jsonplaceholder/jsonplaceholder-comment-structure/)
+- [Jsonplaceholder Photo Structure](https://apis.io/json-structure/jsonplaceholder/jsonplaceholder-photo-structure/)
+- [Jsonplaceholder Post Structure](https://apis.io/json-structure/jsonplaceholder/jsonplaceholder-post-structure/)
+- [Jsonplaceholder Todo Structure](https://apis.io/json-structure/jsonplaceholder/jsonplaceholder-todo-structure/)
+- [Jsonplaceholder User Structure](https://apis.io/json-structure/jsonplaceholder/jsonplaceholder-user-structure/)
+
+#### JSON-LD (2)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [context Context](https://apis.io/jsonld/jsonplaceholder/context/)
+- [Jsonplaceholder Context](https://apis.io/jsonld/jsonplaceholder/jsonplaceholder-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Jsonplaceholder Vocabulary](https://apis.io/vocabularies/jsonplaceholder/jsonplaceholder-vocabulary/)
+
+#### Examples (8)
+
+Example requests and responses.
+
+- [Create Post Request](https://apis.io/examples/jsonplaceholder/create-post-request/)
+- [Create Post Response](https://apis.io/examples/jsonplaceholder/create-post-response/)
+- [Jsonplaceholder Album Example](https://apis.io/examples/jsonplaceholder/jsonplaceholder-album-example/)
+- [Jsonplaceholder Comment Example](https://apis.io/examples/jsonplaceholder/jsonplaceholder-comment-example/)
+- [Jsonplaceholder Photo Example](https://apis.io/examples/jsonplaceholder/jsonplaceholder-photo-example/)
+- [Jsonplaceholder Post Example](https://apis.io/examples/jsonplaceholder/jsonplaceholder-post-example/)
+- [Jsonplaceholder Todo Example](https://apis.io/examples/jsonplaceholder/jsonplaceholder-todo-example/)
+- [Jsonplaceholder User Example](https://apis.io/examples/jsonplaceholder/jsonplaceholder-user-example/)
+
+#### Collections (7)
+
+Postman and Open Collection request collections.
+
+- [JSONPlaceholder REST API](https://apis.io/collections/jsonplaceholder/open-jsonplaceholder/)
+- [JSONPlaceholder REST Albums API](https://apis.io/collections/jsonplaceholder/open-jsonplaceholder-albums-api/)
+- [JSONPlaceholder REST Albums Comments API](https://apis.io/collections/jsonplaceholder/open-jsonplaceholder-comments-api/)
+- [JSONPlaceholder REST Albums Photos API](https://apis.io/collections/jsonplaceholder/open-jsonplaceholder-photos-api/)
+- [JSONPlaceholder REST Albums Posts API](https://apis.io/collections/jsonplaceholder/open-jsonplaceholder-posts-api/)
+- [JSONPlaceholder REST Albums Todos API](https://apis.io/collections/jsonplaceholder/open-jsonplaceholder-todos-api/)
+- [JSONPlaceholder REST Albums Users API](https://apis.io/collections/jsonplaceholder/open-jsonplaceholder-users-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [JSONPlaceholder — jsonschema rules](https://apis.io/rules/jsonplaceholder/jsonplaceholder-jsonschema-spectral-rules/)
+- [JSONPlaceholder API Rules](https://apis.io/rules/jsonplaceholder/jsonplaceholder-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Jsonplaceholder Domain Security](https://apis.io/security/jsonplaceholder/jsonplaceholder-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Jsonplaceholder Plans Pricing](https://apis.io/plans/jsonplaceholder/jsonplaceholder-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Jsonplaceholder Rate Limits](https://apis.io/rate-limits/jsonplaceholder/jsonplaceholder-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Jsonplaceholder Finops](https://apis.io/finops/jsonplaceholder/jsonplaceholder-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://jsonplaceholder.typicode.com)
-- [Getting Started](https://jsonplaceholder.typicode.com/guide/)
-- [GitHub Repository](https://github.com/typicode/jsonplaceholder)
-- [GitHub Repository](https://github.com/typicode/json-server)
-- [GitHub Repository](https://github.com/typicode/lowdb)
-- [GitHub Organization](https://github.com/typicode)
+- [Documentation](https://jsonplaceholder.typicode.com/guide/)
+- [Getting started](https://jsonplaceholder.typicode.com/guide/)
+- [Pricing](https://jsonplaceholder.typicode.com)
 - [Blog](https://blog.typicode.com)
-- [Public APIs Listing](https://github.com/public-apis/public-apis)
-- [Plans](plans/jsonplaceholder-plans-pricing.yml)
-- [Rate Limits](rate-limits/jsonplaceholder-rate-limits.yml)
-- [Spectral Rules](rules/jsonplaceholder-rules.yml)
-- [Vocabulary](vocabulary/jsonplaceholder-vocabulary.yml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Solutions](undefined)
+- [GitHub](https://github.com/typicode)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 25.3** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 31.9 |
+| Contract governance | 27.3 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 15.8 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/jsonplaceholder/](https://apis.io/providers/jsonplaceholder/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for JSONPlaceholder: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/jsonplaceholder/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
